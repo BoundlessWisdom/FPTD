@@ -7,7 +7,7 @@ class BladeGaleTower extends Tower {
   }
   
   void shoot() {
-    GaleBlower bladeGale = new GaleBlower(this, 1);
+    GaleBlower bladeGale = new GaleBlower(this, loc);
     bladeGale.make();
   }
 }
@@ -22,7 +22,7 @@ class FirecrackerTower extends Tower {
   }
   
   void shoot() {
-    Firecracker firecracker = new FireCracker(this, 1);
+    Firecracker firecracker = new FireCracker(this, loc);
     firecracker.make();
   }
 }
@@ -37,8 +37,8 @@ class RollingStoneTower extends Tower {
   }
   
   void shoot() {
-    RollingStone rollingStone = new RollingStone(this, 1);
-    RollingStone.make();
+    RollingStone rollingStone = new RollingStone(this, loc);
+    rollingStone.make();
   }
 }
 
@@ -52,7 +52,7 @@ class CrackleTower extends Tower {
   }
   
   void shoot() {
-    Crackler crackler = new Crackler(this, 1);
+    Crackler crackler = new Crackler(this, loc);
     crackler.make();
   }
 }
@@ -67,7 +67,7 @@ class SparkTower extends Tower {
   }
   
   void shoot() {
-    Spark spark = new Spark(this, 1);
+    Spark spark = new Spark(this, loc);
     spark.make();
   }
 }
@@ -82,7 +82,7 @@ class StormTower extends Tower {
   }
   
   void shoot() {
-    StormLightning bolt = new StormLightning(this, 1);
+    StormLightning bolt = new StormLightning(this, loc);
     bolt.make();
   }
 }
@@ -97,7 +97,7 @@ class SandstormTower extends Tower {
   }
   
   void shoot() {
-    Sandstorm storm = new Sandstorm(this, 1);
+    Sandstorm storm = new Sandstorm(this, loc);
     storm.make();
   }
 }
@@ -112,7 +112,7 @@ class ToxicTower extends Tower {
   }
   
   void shoot() {
-    ToxicCloud toxicCloud = new ToxicCloud(this, 1);
+    ToxicCloud toxicCloud = new ToxicCloud(this, loc);
     toxicCloud.make();
   }
 }
@@ -127,7 +127,7 @@ class MudslideTower extends Tower {
   }
   
   void shoot() {
-    Mudslide mudslide = new Mudslide(this, 1);
+    Mudslide mudslide = new Mudslide(this, loc);
     mudslide.make();
   }
 }
@@ -142,7 +142,7 @@ class BOOOOOOMTower extends Tower {
   }
   
   void shoot() {
-    BOOOOOOMER boom = new BOOOOOOMER(this, 1);
+    BOOOOOOMER boom = new BOOOOOOMER(this, loc);
     boom.make();
   }
 }
