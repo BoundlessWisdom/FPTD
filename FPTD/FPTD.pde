@@ -23,7 +23,7 @@ baseMouseX = width/2;baseMouseY = height/2;
 
 
 void draw(){
-   
+  translate(plr.location.x, plr.location.y, plr.location.z);
   frameRate(60); //Sets framerate to 60.
 
   background(0,0,255); //Sets default color.
@@ -43,11 +43,10 @@ for(int i=projectiles.size()-1; i>=0; i--){
  myproj.make(); 
  System.out.print("q");
 }
-for(int i=fireballs.size()-1; i>=0; i--){
- Fireball myfire = fireballs.get(i);
- myfire.make();}
- 
- 
+for(Fireball f : fireballs){
+f.make();
+}
+
 
 for(Tower t : towers){
  t.make();
@@ -75,7 +74,7 @@ for(int i = 0; i < 31; i++)
     grid[(int)xValue + 15][(int)yValue + 15].add(e);
     e.make();
   }
-  
+  System.out.print(keys['s']);
   //plr.collide();
   /*
   for (int i = -15; i < 16; i++)     //x
@@ -93,7 +92,10 @@ for(int i = 0; i < 31; i++)
                     
         }
         */
-       
+        
+ rotateX(plr.look.y);
+ rotateY(plr.look.x);
+
 }
 void keyPressed()
 {
@@ -102,7 +104,14 @@ void keyPressed()
     keys[key] = true;
   }
 }
-
+void keyReleased()
+{
+  if(key != CODED)
+  {
+    keys[key] = false;
+    
+  }
+}
 static float sign(float num) {
   return num < 0 ? -1 : 1;
 }
