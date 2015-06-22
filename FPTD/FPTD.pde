@@ -12,8 +12,8 @@ void setup(){
 void draw(){
   frameRate(60);
   background(0,0,255);
- //Player.update();
- //Towers.update();
+ Player.update();
+ Towers.update();
 
 }
 
