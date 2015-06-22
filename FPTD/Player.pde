@@ -25,7 +25,7 @@ class Player {
   }
   
   void updateLook(long dtime) {
-    look.add((mouseX - baseMouseX) * angleMult, (mouseY - baseMouseY) * angleMult);
+    look.add((mouseX - baseMouseX) * angleMult, 0, (mouseY - baseMouseY) * angleMult);
     robot.mouseMove(baseMouseX, baseMouseY);
   }
   

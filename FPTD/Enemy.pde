@@ -18,10 +18,10 @@ abstract class Enemy
         this.pos = new PVector(310000.0f,0,0);
         break;
       case 2:
-        this.pos = new PVector(0,310000.0f,0);
+        this.pos = new PVector(0,0,310000.0f);
         break;
       case 3:
-        this.pos = new PVector(310000.0f,31.0f,0);
+        this.pos = new PVector(310000.0f,0, 310000.0f);
         break;
       default:
         this.pos = new PVector(0,0,0);

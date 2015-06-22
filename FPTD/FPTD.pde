@@ -1,8 +1,8 @@
 ArrayList <Projectile> projectiles = new ArrayList <Projectile> ();
 ArrayList <Tower> towers = new ArrayList <Tower> ();
 ArrayList <Enemy> enemies = new ArrayList<Enemy>();
-int basemousex = width/2;
-int basemousey = height/2;
+int baseMouseX = width/2;
+int baseMouseY = height/2;
 Player plr;
 boolean[] keys = new boolean[255];
 void setup(){
