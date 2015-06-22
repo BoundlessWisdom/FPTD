@@ -1,19 +1,20 @@
 abstract class Enemy
 {
-  public int atk, def, hp, speed; //Creates integers of attack, defense, health, and speed.
-  public PVector vel, pos; //Creates a pvector of velocity and position.
-  public String name = "Basic"; //Makes a default name of "basic"
-  PImage tex = null; //make the default tex of null/
-  int xpYield = 100; //makes the xp return to 100 points.
-  public void onSpawn(int corner, boolean fromOtherEnemy, Enemy from) //Upon the spawn of an enemy,
+  int size = 1000;
+  public int atk, def, hp, speed;
+  public PVector vel, pos;
+  public String name = "Basic";
+  PImage tex = null;
+  int xpYield = 100;
+  public void onSpawn(int corner, boolean fromOtherEnemy, Enemy from)
   {
-    if(fromOtherEnemy) //if it's from another enemy,
+    if(fromOtherEnemy)
     {
-      this.pos = PVector.add(from.pos, new PVector(random(10), random(10), random(10))); //make the resultant velcity random from current pos.
+      this.pos = PVector.add(from.pos, new PVector(random(10), random(10), random(10)));
     }
-    else switch(corner) //determines the corner to start in.
+    else switch(corner)
     {
-      case 0: //Different cases to set coordinates.
+      case 0:
         this.pos = new PVector(-150000,0,-150000);
         break;
       case 1:
@@ -32,17 +33,17 @@ abstract class Enemy
     enemies.add(this);
     initializeSphere(30,30);
   }
-  public void onAttack(Player tgt) //Upon attack.
+  public void onAttack(Player tgt)
   {
-    if(PVector.sub(this.pos, plr.location).mag() < 1 && PVector.sub(this.pos, plr.location).mag() > -1) 
+    if(PVector.sub(this.pos, plr.location).mag() < 1 && PVector.sub(this.pos, plr.location).mag() > -1)
     {
-      plr.health -= this.atk; //Return health.
+      plr.health -= this.atk;
     }
   }
-  public void onDeath() //Upon death.
+  public void onDeath()
   {
-    enemies.remove(this); //Remove all enemies and
-    plr.xp += xpYield; //Remove all yield.
+    enemies.remove(this);
+    plr.xp += xpYield;
   }
   public void update()//note to self: this.velocity = player.pos.sub(this.pos).normalize().mul(this.speed); for tracking
   {
@@ -60,18 +61,18 @@ abstract class Enemy
   }
 }
 
-class BasicEnemy extends Enemy{ //Default enemy.
+class BasicEnemy extends Enemy{
   public BasicEnemy()
   {
-    tex = loadImage("fireball_small.png"); //Fireball small image for default enemy.
+    tex = loadImage("fireball_small.png");
     atk = def = hp = 1;
     speed = 6;
-    pos = new PVector(0,0,0); //Sets default velocity and position of zero.
+    pos = new PVector(0,0,0);
     vel = new PVector(0,0,0);
   }
 }
 
-class BasicPlusEnemy extends Enemy{ //Creates basic fireball medium with medium image.
+class BasicPlusEnemy extends Enemy{
   public BasicPlusEnemy()
   {
      tex = loadImage("fireball_med.png");
@@ -83,7 +84,7 @@ class BasicPlusEnemy extends Enemy{ //Creates basic fireball medium with medium 
     xpYield = 200;
   }
 }
-class BigEnemy extends Enemy{ //Creates large fireball enemy.
+class BigEnemy extends Enemy{
   public BigEnemy()
   {
      tex = loadImage("fireball_large.png");
@@ -94,8 +95,8 @@ class BigEnemy extends Enemy{ //Creates large fireball enemy.
     name = "Big";
     xpYield = 1000;
   }
-} 
-class HugeEnemy extends Enemy{ //Creates enormous thing, but uses big sprite.
+}
+class HugeEnemy extends Enemy{
   public HugeEnemy()
   {
     atk = def = hp = 7;
@@ -107,7 +108,7 @@ class HugeEnemy extends Enemy{ //Creates enormous thing, but uses big sprite.
      tex = loadImage("fireball_large.png");
   }
 }
-class BossEnemy extends Enemy{ //makes a boss with default health.
+class BossEnemy extends Enemy{
   public BossEnemy()
   {
     atk = def = hp = 10;
@@ -116,13 +117,13 @@ class BossEnemy extends Enemy{ //makes a boss with default health.
     vel = new PVector(0,0,0);
     name = "Boss";
     xpYield = 10000;
-     tex = loadImage("bomb_boss_right_active.png"); //With bomb sprite.
+     tex = loadImage("bomb_boss_right_active.png");
   }
 }
 class BombEnemy extends Enemy{
   public BombEnemy()
   {
-     tex = loadImage("bomb_active.png"); //Bomb enemy with bomb sprite.
+     tex = loadImage("bomb_active.png");
     atk = def = hp = 1;
     speed = 6;
     pos = new PVector(0,0,0);
@@ -130,7 +131,7 @@ class BombEnemy extends Enemy{
     name = "Bomb";
     xpYield = 5000;
   }
-  public void onDeath() //Upon death.
+  public void onDeath()
   {
     super.onDeath();
     //Explode
@@ -147,7 +148,7 @@ class BombEnemy extends Enemy{
     }
   }
 }
-class SplitterEnemy extends Enemy{ //Splitter enemy.
+class SplitterEnemy extends Enemy{
   int splits = 0;
   public SplitterEnemy()
   {
@@ -157,9 +158,9 @@ class SplitterEnemy extends Enemy{ //Splitter enemy.
     vel = new PVector(0,0,0);
     xpYield = 1000;
     name = "Splitter";
-     tex = loadImage("fireball_small.png"); //Fireball image.
+     tex = loadImage("fireball_small.png");
   }
-  public SplitterEnemy(int splits) //Only lets it split a certain amount.
+  public SplitterEnemy(int splits)
   {
     this.splits = splits;
     if(splits > 4)
