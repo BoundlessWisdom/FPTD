@@ -2,7 +2,7 @@ ArrayList <Projectile> projectiles = new ArrayList <Projectile> ();
 ArrayList <Towers> towers = new ArrayList <Towers> ();
 int basemousex = width/2;
 int basemousey = height/2;
-
+Player plr;
 
 void setup(){
  size(displayWidth, displayHeight,P3D);
