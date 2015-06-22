@@ -21,9 +21,9 @@ void setup(){ //Setup void method.
 
 
 void draw(){
-   if (!bgm.isPlaying ()) { //loop intro music
-      bgm.rewind (); 
-      bgm.play ();
+   if (!bgm.isPlaying ()) { //makes the song play.
+      bgm.rewind (); //Rewinds the song to beginning.
+      bgm.play ();//Plays the song again.
     }
   frameRate(60);
   background(0,0,255);
