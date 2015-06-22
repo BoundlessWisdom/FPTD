@@ -27,9 +27,14 @@ void make(){
 
 void shoot(){
 if((timer-millis())%200==0){ 
- timer-=5000; 
+ timer-=200; 
 if(type == 1){
 projectiles.add(new Airbullet());} 
 }
+if(type == 2){
+ projectiles.add(new Firebullet()); 
+}
+if(type == 3) {
+projectiles.add(new Earthbullet());}
 }
 }
