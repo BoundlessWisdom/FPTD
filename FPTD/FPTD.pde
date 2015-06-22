@@ -1,5 +1,6 @@
 ArrayList <Projectile> projectiles = new ArrayList <Projectile> ();
 ArrayList <Towers> towers = new ArrayList <Towers> ();
+ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 int basemousex = width/2;
 int basemousey = height/2;
 Player plr;

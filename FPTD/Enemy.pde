@@ -3,10 +3,46 @@ abstract class Enemy
   public int atk, def, hp, speed;
   public PVector vel, pos;
   public String name = "Basic";
-  public abstract void onSpawn(int corner, boolean fromOtherEnemy);
-  public abstract void onAttack(Player tgt);
-  public abstract void onDeath(World theWorld);
-  public abstract void tick(World theWorld); //note to self: this.velocity = player.pos.sub(this.pos).normalize().mul(this.speed); for tracking
+  public void onSpawn(int corner, boolean fromOtherEnemy, Enemy from)
+  {
+    if(fromOtherEnemy)
+    {
+      this.pos = PVector.add(from.pos, new PVector(random(10), random(10), random(10)));
+    }
+    else switch(corner)
+    {
+      case 0:
+        this.pos = new PVector(0,0,0);
+        break;
+      case 1:
+        this.pos = new PVector(31.0f,0,0);
+        break;
+      case 2:
+        this.pos = new PVector(0,31.0f,0);
+        break;
+      case 3:
+        this.pos = new PVector(31.0f,31.0f,0);
+        break;
+      default:
+        this.pos = new PVector(0,0,0);
+        break;
+    }
+    enemies.add(this);
+  }
+  public void onAttack(Player tgt)
+  {
+    
+  }
+  public void onDeath(World theWorld)
+  {
+    enemies.remove(this);
+  }
+  public  void tick(World theWorld)//note to self: this.velocity = player.pos.sub(this.pos).normalize().mul(this.speed); for tracking
+  {
+    this.vel = PVector.sub(this.pos, plr.location);
+    vel.normalize();
+    vel.mult(this.speed);
+  }
 }
 
 class BasicEnemy extends Enemy{
@@ -16,26 +52,6 @@ class BasicEnemy extends Enemy{
     speed = 6;
     pos = new PVector(0,0,0);
     vel = new PVector(0,0,0);
-  }
-  @Override
-  public void onSpawn(int corner, boolean fromOtherEnemy)
-  {
-    
-  }
-  @Override
-  public void onAttack(Player tgt)
-  {
-    
-  }
-  @Override
-  public void onDeath(World theWorld)
-  {
-    
-  }
-  @Override
-  public void tick(World theWorld)
-  {
-    
   }
 }
 
@@ -48,26 +64,6 @@ class BasicPlusEnemy extends Enemy{
     vel = new PVector(0,0,0);
     name = "Basic+";
   }
-  @Override
-  public void onSpawn(int corner, boolean fromOtherEnemy)
-  {
-    
-  }
-  @Override
-  public void onAttack(Player tgt)
-  {
-    
-  }
-  @Override
-  public void onDeath(World theWorld)
-  {
-    
-  }
-  @Override
-  public void tick(World theWorld)
-  {
-    
-  }
 }
 class BigEnemy extends Enemy{
   public BigEnemy()
@@ -77,26 +73,6 @@ class BigEnemy extends Enemy{
     pos = new PVector(0,0,0);
     vel = new PVector(0,0,0);
     name = "Big";
-  }
-  @Override
-  public void onSpawn(int corner, boolean fromOtherEnemy)
-  {
-    
-  }
-  @Override
-  public void onAttack(Player tgt)
-  {
-    
-  }
-  @Override
-  public void onDeath(World theWorld)
-  {
-    
-  }
-  @Override
-  public void tick(World theWorld)
-  {
-    
   }
 }
 class HugeEnemy extends Enemy{
@@ -108,26 +84,6 @@ class HugeEnemy extends Enemy{
     vel = new PVector(0,0,0);
     name = "Huge";
   }
-  @Override
-  public void onSpawn(int corner, boolean fromOtherEnemy)
-  {
-    
-  }
-  @Override
-  public void onAttack(Player tgt)
-  {
-    
-  }
-  @Override
-  public void onDeath(World theWorld)
-  {
-    
-  }
-  @Override
-  public void tick(World theWorld)
-  {
-    
-  }
 }
 class BossEnemy extends Enemy{
   public BossEnemy()
@@ -137,25 +93,5 @@ class BossEnemy extends Enemy{
     pos = new PVector(0,0,0);
     vel = new PVector(0,0,0);
     name = "Boss";
-  }
-  @Override
-  public void onSpawn(int corner, boolean fromOtherEnemy)
-  {
-    
-  }
-  @Override
-  public void onAttack(Player tgt)
-  {
-    
-  }
-  @Override
-  public void onDeath(World theWorld)
-  {
-    
-  }
-  @Override
-  public void tick(World theWorld)
-  {
-    
   }
 }
