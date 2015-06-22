@@ -22,7 +22,7 @@ class FirecrackerTower extends Tower {
   }
   
   void shoot() {
-    Firecracker firecracker = new FireCracker(this, target.pos);
+    FireCracker firecracker = new FireCracker(this, target.pos);
     firecracker.make();
   }
 }
