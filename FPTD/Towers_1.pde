@@ -2,7 +2,7 @@ abstract class Tower {
   PVector loc;
   long timer = millis();
    
-  Towers(int x, int y) {
+  Tower(int x, int y) {
     loc = new PVector(x, y);
   }
   
