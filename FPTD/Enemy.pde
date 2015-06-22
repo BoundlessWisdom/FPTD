@@ -33,11 +33,11 @@ abstract class Enemy
   {
     plr.health -= this.atk;
   }
-  public void onDeath(World theWorld)
+  public void onDeath()
   {
     enemies.remove(this);
   }
-  public  void tick(World theWorld)//note to self: this.velocity = player.pos.sub(this.pos).normalize().mul(this.speed); for tracking
+  public  void tick()//note to self: this.velocity = player.pos.sub(this.pos).normalize().mul(this.speed); for tracking
   {
     this.vel = PVector.sub(this.pos, plr.location);
     vel.normalize();
