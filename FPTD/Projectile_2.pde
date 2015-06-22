@@ -141,6 +141,22 @@ BOOOOOOMER(Tower temptow, PVector aloc){
 }
 void make(){
   translate(loc.x,loc.y,loc.z);
+ fill(0,0,0,100);
+ sphere(10000);
+
+   vel = PVector.sub(loc,target);
+   loc.add(vel);
+    translate(-loc.x, -loc.y, -loc.z);
+}
+}
+
+class Hellfire extends Projectile{
+
+Hellfire(Tower temptow, PVector aloc){
+  super(temptow, aloc);
+}
+void make(){
+  translate(loc.x,loc.y,loc.z);
  
 
    vel = PVector.sub(loc,target);
@@ -149,9 +165,9 @@ void make(){
 }
 }
 
-class StormLightning extends Projectile{
+class Aftershock extends Projectile{
 
-StormLightning(Tower temptow, PVector aloc){
+Aftershock(Tower temptow, PVector aloc){
   super(temptow, aloc);
 }
 void make(){
