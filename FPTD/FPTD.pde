@@ -19,7 +19,7 @@ void draw(){
   translate(300,.95*height,-500);
   fill(0,255,0);
 
-  box(300000,300,300000); 
+  box(310000,310,310000); 
   
  Player.update();
 for(int i=projectiles.size(); i>0; i--){
