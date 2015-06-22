@@ -4,6 +4,7 @@ class BladeGaleTower extends Tower {
   
   BladeGaleTower(int x, int y) {
     super(x, y);
+    Color = color(100, 100, 100);
   }
   
   void shoot() {
@@ -19,6 +20,7 @@ class FirecrackerTower extends Tower {
   
   FirecrackerTower(int x, int y) {
     super(x, y);
+    Color = color(153, 204, 255);
   }
   
   void shoot() {
@@ -34,6 +36,7 @@ class RollingStoneTower extends Tower {
   
   RollingStoneTower(int x, int y) {
     super(x, y);
+    Color = color(222, 184, 135);
   }
   
   void shoot() {
@@ -49,6 +52,7 @@ class CrackleTower extends Tower {
   
   CrackleTower(int x, int y) {
     super(x, y);
+    Color = color(255, 91, 71);
   }
   
   void shoot() {
@@ -64,6 +68,7 @@ class SparkTower extends Tower {
   
   SparkTower(int x, int y) {
     super(x, y);
+    Color = color(90, 204, 255);
   }
   
   void shoot() {
@@ -79,6 +84,7 @@ class StormTower extends Tower {
   
   StormTower(int x, int y) {
     super(x, y);
+    Color = color(255, 204, 255);
   }
   
   void shoot() {
@@ -94,6 +100,7 @@ class SandstormTower extends Tower {
   
   SandstormTower(int x, int y) {
     super(x, y);
+    Color = color(222, 184, 135);
   }
   
   void shoot() {
@@ -109,6 +116,7 @@ class ToxicTower extends Tower {
   
   ToxicTower(int x, int y) {
     super(x, y);
+    Color = color(148, 0, 211);
   }
   
   void shoot() {
@@ -124,6 +132,7 @@ class MudslideTower extends Tower {
   
   MudslideTower(int x, int y) {
     super(x, y);
+    Color = color(222, 184, 135);
   }
   
   void shoot() {
@@ -139,6 +148,7 @@ class BOOOOOOMTower extends Tower {
   
   BOOOOOOMTower(int x, int y) {
     super(x, y);
+    Color = color(0, 0, 0);
   }
   
   void shoot() {
@@ -154,6 +164,7 @@ class HellfireTower extends Tower {
   
   HellfireTower(int x, int y) {
     super(x, y);
+    Color = color(102,0,0);
   }
   
   void shoot() {
@@ -169,6 +180,7 @@ class AftershockTower extends Tower {
   
   AftershockTower(int x, int y) {
     super(x, y);
+    Color = color(102,0,102);
   }
   
   void shoot() {

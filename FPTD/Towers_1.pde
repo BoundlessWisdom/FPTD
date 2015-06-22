@@ -61,6 +61,7 @@ class FireTower extends Tower {
   
   FireTower(int x, int y) {
     super(x, y);
+    Color = color(255, 0, 0);
   }
   
   void shoot() {
@@ -75,6 +76,7 @@ class EarthTower extends Tower {
   
   EarthTower(int x, int y) {
     super(x, y);
+    Color = color(222, 184, 135);
   }
   
   void shoot() {
@@ -90,6 +92,7 @@ class JetTower extends Tower {
   
   JetTower(int x, int y) {
     super(x, y);
+    Color = color(255,255,255);
   }
   
   void shoot() {
@@ -105,6 +108,7 @@ class OilTower extends Tower {
   
   OilTower(int x, int y) {
     super(x, y);
+    Color = color(255,255,255);
   }
   
   void shoot() {
@@ -120,6 +124,7 @@ class BoulderTower extends Tower {
   
   BoulderTower(int x, int y) {
     super(x, y);
+    Color = color(222, 184, 135);
   }
   
   void shoot() {
@@ -135,6 +140,7 @@ class LightningTower extends Tower {
   
   LightningTower(int x, int y) {
     super(x, y);
+    Color = color(255,255,0);
   }
   
   void shoot() {
@@ -150,6 +156,7 @@ class SandTower extends Tower {
   
   SandTower(int x, int y) {
     super(x, y);
+    Color = color(239,190,150);
   }
   
   void shoot() {
@@ -165,6 +172,7 @@ class BoomTower extends Tower {
   
   BoomTower(int x, int y) {
     super(x, y);
+    Color = color(0, 0, 0);
   }
   
   void shoot() {
