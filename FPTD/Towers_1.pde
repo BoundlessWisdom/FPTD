@@ -6,11 +6,17 @@ abstract class Tower {
     loc = new PVector(x, y);
   }
   
-  abstract int rank();
+  int rank()
+  {
+    return 0;
+  }
 
-  abstract void shoot();
+   void shoot(){
+  }
   
-  abstract void upgrade();
+  void upgrade()
+  {
+  }
 }
 
 
@@ -22,7 +28,7 @@ class AirTower extends Tower {
   }
   
   void shoot() {
-    AirBullet bullet = new AirBullet(this, 1);
+    AirBullet bullet = new AirBullet(this,loc);
     bullet.make();
   }
 }
@@ -36,7 +42,7 @@ class FireTower extends Tower {
   }
   
   void shoot() {
-    FireBullet bullet = new FireBullet(this, 1);
+    FireBullet bullet = new FireBullet(this, loc);
     bullet.make();
   }
 }
@@ -50,7 +56,7 @@ class EarthTower extends Tower {
   }
   
   void shoot() {
-    EarthBullet bullet = new EarthBullet(this, 1);
+    EarthBullet bullet = new EarthBullet(this, loc);
     bullet.make();
   }
 }
@@ -65,7 +71,7 @@ class JetTower extends Tower {
   }
   
   void shoot() {
-    JetStream stream = new JetStream(this, 1);
+    JetStream stream = new JetStream(this, loc);
     stream.make();
   }
 }
@@ -80,7 +86,7 @@ class OilTower extends Tower {
   }
   
   void shoot() {
-    OilSplasher splash = new OilSplasher(this, 1);
+    OilSplasher splash = new OilSplasher(this, loc);
     splash.make();
   }
 }
@@ -95,7 +101,7 @@ class BoulderTower extends Tower {
   }
   
   void shoot() {
-    Boulder rock = new Boulder(this, 1);
+    Boulder rock = new Boulder(this, loc);
     rock.make();
   }
 }
@@ -110,7 +116,7 @@ class LightningTower extends Tower {
   }
   
   void shoot() {
-    ChainLightning bolt = new ChainLightning(this, 1);
+    ChainLightning bolt = new ChainLightning(this, loc);
     bolt.make();
   }
 }
@@ -125,7 +131,7 @@ class SandTower extends Tower {
   }
   
   void shoot() {
-    SandSplasher wave = new SandSplasher(this, 1);
+    SandSplasher wave = new SandSplasher(this, loc);
     wave.make();
   }
 }
@@ -140,7 +146,7 @@ class BoomTower extends Tower {
   }
   
   void shoot() {
-    Boomer boom = new Boomer(this, 1);
+    Boomer boom = new Boomer(this, loc);
     boom.make();
   }
 }

@@ -21,7 +21,7 @@ void draw(){
 
   box(310000,310,310000); 
   
- Player.update();
+ plr.update(0);
 for(int i=projectiles.size(); i>0; i--){
  Projectile myproj = projectiles.get(i);
  myproj.make();
@@ -29,8 +29,7 @@ for(int i=projectiles.size(); i>0; i--){
 }
 
 for(int i= towers.size(); i>0; i--){
- Tower mytow = towers.get(i);
-mytow.make(); 
+ Tower mytow = towers.get(i); 
 }
 
 }

@@ -12,9 +12,9 @@ abstract class Projectile{
   abstract void make();
 }
 
-class Airbullet extends Projectile{
+class AirBullet extends Projectile{
 
- Airbullet(Tower temptow, PVector aloc){
+ AirBullet(Tower temptow, PVector aloc){
   super(temptow, aloc);
  } 
  
@@ -25,8 +25,8 @@ class Airbullet extends Projectile{
   
 }
 
-class Earthbullet extends Projectile{
-  Earthbullet(Tower temptow, PVector aloc){
+class EarthBullet extends Projectile{
+  EarthBullet(Tower temptow, PVector aloc){
   super(temptow, aloc);
   }
   
@@ -117,6 +117,21 @@ void make(){
 class Boomer extends Projectile{
 
 Boomer(Tower temptow, PVector aloc){
+  super(temptow, aloc);
+}
+void make(){
+  translate(loc.x,loc.y,loc.z);
+   fill(0,0,100);
+ sphere(10000);
+   
+   vel = PVector.sub(loc,tloc);
+   loc.add(vel);
+  
+}
+}
+class FireBullet extends Projectile{
+
+FireBullet(Tower temptow, PVector aloc){
   super(temptow, aloc);
 }
 void make(){
