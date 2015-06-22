@@ -41,3 +41,125 @@ void make(){
     translate(-loc.x, -loc.y, -loc.z);
 }
 }
+
+class Crackler extends Projectile{
+
+Crackler(Tower temptow, PVector aloc){
+  super(temptow, aloc);
+}
+void make(){
+  translate(loc.x,loc.y,loc.z);
+ 
+
+   vel = PVector.sub(loc,target);
+   loc.add(vel);
+    translate(-loc.x, -loc.y, -loc.z);
+}
+}
+
+
+class Spark extends Projectile{
+
+Spark(Tower temptow, PVector aloc){
+  super(temptow, aloc);
+}
+void make(){
+  translate(loc.x,loc.y,loc.z);
+ 
+
+   vel = PVector.sub(loc,target);
+   loc.add(vel);
+    translate(-loc.x, -loc.y, -loc.z);
+}
+}
+
+
+class StormLightning extends Projectile{
+
+StormLightning(Tower temptow, PVector aloc){
+  super(temptow, aloc);
+}
+void make(){
+  translate(loc.x,loc.y,loc.z);
+ 
+
+   vel = PVector.sub(loc,target);
+   loc.add(vel);
+    translate(-loc.x, -loc.y, -loc.z);
+}
+}
+
+class Sandstorm extends Projectile{
+
+  Sandstorm(Tower temptow, PVector aloc){
+  super(temptow, aloc);
+}
+void make(){
+  translate(loc.x,loc.y,loc.z);
+ 
+
+   vel = PVector.sub(loc,target);
+   loc.add(vel);
+    translate(-loc.x, -loc.y, -loc.z);
+}
+}
+
+class ToxicCloud extends Projectile{
+
+ToxicCloud(Tower temptow, PVector aloc){
+  super(temptow, aloc);
+}
+void make(){
+  translate(loc.x,loc.y,loc.z);
+ 
+
+   vel = PVector.sub(loc,target);
+   loc.add(vel);
+    translate(-loc.x, -loc.y, -loc.z);
+}
+}
+
+class Mudslide extends Projectile{
+
+Mudslide(Tower temptow, PVector aloc){
+  super(temptow, aloc);
+}
+void make(){
+  translate(loc.x,loc.y,loc.z);
+ 
+
+   vel = PVector.sub(loc,target);
+   loc.add(vel);
+    translate(-loc.x, -loc.y, -loc.z);
+}
+}
+
+class BOOOOOOMER extends Projectile{
+
+BOOOOOOMER(Tower temptow, PVector aloc){
+  super(temptow, aloc);
+}
+void make(){
+  translate(loc.x,loc.y,loc.z);
+ 
+
+   vel = PVector.sub(loc,target);
+   loc.add(vel);
+    translate(-loc.x, -loc.y, -loc.z);
+}
+}
+
+class StormLightning extends Projectile{
+
+StormLightning(Tower temptow, PVector aloc){
+  super(temptow, aloc);
+}
+void make(){
+  translate(loc.x,loc.y,loc.z);
+ 
+
+   vel = PVector.sub(loc,target);
+   loc.add(vel);
+    translate(-loc.x, -loc.y, -loc.z);
+}
+}
