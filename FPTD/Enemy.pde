@@ -200,4 +200,14 @@ class SplitterEnemy extends Enemy{
     enemies.add(e1);
     enemies.add(e2);
   }
+
+  void collide(Enemy e) {
+    int dist = dist(e.pos, this.loc);
+    if (dist < e.size + this.size) {
+      this.speed /= (0.1 * size * dist/2);
+      e.vel /= (0.1 * size * dist/2);
+      this.speed.add(this.loc.sub(e.pos) * 10 / 2);
+      e.vel.add(e.pos.sub(this.loc) * 10 / 2);
+    }
+  }
 }
