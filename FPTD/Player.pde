@@ -14,7 +14,7 @@ class Player {
   
   
   PVector look = new PVector(0, 0);
-  float angleMult;
+  float angleMult = 1;
   
   PVector movedirection = new PVector(0,0);
   
@@ -40,6 +40,14 @@ class Player {
   
   void updateLook(long dtime) {
     look.add((mouseX - baseMouseX) * angleMult, 0, (mouseY - baseMouseY) * angleMult);
+    if (look.x > 360)
+      look.x -= 360;
+    else if (look.x < 360)
+      look.x += 360;
+    if (look.y > 90)
+      look.y = 90;
+    else if (look.y < -90)
+      look.y = -90;
     robot.mouseMove(baseMouseX, baseMouseY);
   }
   
