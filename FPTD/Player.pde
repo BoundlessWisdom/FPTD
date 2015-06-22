@@ -24,13 +24,13 @@ class Player {
     updateLoc(dtime);
   }
   
-  void updateLook(long time) {
+  void updateLook(long dtime) {
     look.add((mouseX - baseMouseX) * angleMult, (mouseY - baseMouseY) * angleMult);
     robot.mouseMove(baseMouseX, baseMouseY);
   }
   
-  void updateLoc(long time) {
-    
+  void updateLoc(long dtime) {
+    if(keyPressed)+=dtime*speed
   }
   
  void setupPlayer() {
