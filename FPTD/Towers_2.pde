@@ -7,7 +7,7 @@ class BladeGaleTower extends Tower {
   }
   
   void shoot() {
-    GaleBlower bladeGale = new GaleBlower(this, loc);
+    GaleBlower bladeGale = new GaleBlower(this, target.pos);
     bladeGale.make();
   }
 }
@@ -22,7 +22,7 @@ class FirecrackerTower extends Tower {
   }
   
   void shoot() {
-    Firecracker firecracker = new FireCracker(this, loc);
+    Firecracker firecracker = new FireCracker(this, target.pos);
     firecracker.make();
   }
 }
@@ -37,7 +37,7 @@ class RollingStoneTower extends Tower {
   }
   
   void shoot() {
-    RollingStone rollingStone = new RollingStone(this, loc);
+    RollingStone rollingStone = new RollingStone(this, target.pos);
     rollingStone.make();
   }
 }
@@ -52,7 +52,7 @@ class CrackleTower extends Tower {
   }
   
   void shoot() {
-    Crackler crackler = new Crackler(this, loc);
+    Crackler crackler = new Crackler(this,target.pos);
     crackler.make();
   }
 }
@@ -67,7 +67,7 @@ class SparkTower extends Tower {
   }
   
   void shoot() {
-    Spark spark = new Spark(this, loc);
+    Spark spark = new Spark(this, target.pos);
     spark.make();
   }
 }
@@ -82,7 +82,7 @@ class StormTower extends Tower {
   }
   
   void shoot() {
-    StormLightning bolt = new StormLightning(this, loc);
+    StormLightning bolt = new StormLightning(this,target.pos);
     bolt.make();
   }
 }
@@ -97,7 +97,7 @@ class SandstormTower extends Tower {
   }
   
   void shoot() {
-    Sandstorm storm = new Sandstorm(this, loc);
+    Sandstorm storm = new Sandstorm(this, target.pos);
     storm.make();
   }
 }
@@ -112,7 +112,7 @@ class ToxicTower extends Tower {
   }
   
   void shoot() {
-    ToxicCloud toxicCloud = new ToxicCloud(this, loc);
+    ToxicCloud toxicCloud = new ToxicCloud(this,target.pos);
     toxicCloud.make();
   }
 }
@@ -127,7 +127,7 @@ class MudslideTower extends Tower {
   }
   
   void shoot() {
-    Mudslide mudslide = new Mudslide(this, loc);
+    Mudslide mudslide = new Mudslide(this, target.pos);
     mudslide.make();
   }
 }
@@ -142,7 +142,7 @@ class BOOOOOOMTower extends Tower {
   }
   
   void shoot() {
-    BOOOOOOMER boom = new BOOOOOOMER(this, loc);
+    BOOOOOOMER boom = new BOOOOOOMER(this, target.pos);
     boom.make();
   }
 }
@@ -157,7 +157,7 @@ class HellfireTower extends Tower {
   }
   
   void shoot() {
-    Hellfire hellfire = new Hellfire(this, loc);
+    Hellfire hellfire = new Hellfire(this, target.pos);
     hellfire.make();
   }
 }
@@ -172,7 +172,7 @@ class AftershockTower extends Tower {
   }
   
   void shoot() {
-    Aftershock shock = new Aftershock(this, loc);
+    Aftershock shock = new Aftershock(this, target.pos);
     shock.make();
   }
 }

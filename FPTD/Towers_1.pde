@@ -1,7 +1,7 @@
 abstract class Tower {
   PVector loc;
   long timer = millis();
-   
+  Enemy target;
   Tower(int x, int y) {
     loc = new PVector(x, y);
   }
@@ -21,6 +21,18 @@ abstract class Tower {
   {
     
   }
+  void findNearest()
+  {
+    Enemy currNearest = enemies.get(0);
+    for(Enemy e : enemies)
+    {
+      if(PVector.sub(e.pos,this.loc).mag() < PVector.sub(currNearest.pos, this.loc).mag())
+      {
+        currNearest = e;
+      }
+    }
+    target = currNearest;
+  }
 }
 
 
@@ -32,7 +44,7 @@ class AirTower extends Tower {
   }
   
   void shoot() {
-    AirBullet bullet = new AirBullet(this,loc);
+    AirBullet bullet = new AirBullet(this,target.pos);
     bullet.make();
   }
 }
@@ -46,7 +58,7 @@ class FireTower extends Tower {
   }
   
   void shoot() {
-    FireBullet bullet = new FireBullet(this, loc);
+    FireBullet bullet = new FireBullet(this, target.pos);
     bullet.make();
   }
 }
@@ -60,7 +72,7 @@ class EarthTower extends Tower {
   }
   
   void shoot() {
-    EarthBullet bullet = new EarthBullet(this, loc);
+    EarthBullet bullet = new EarthBullet(this,target.pos);
     bullet.make();
   }
 }
@@ -75,7 +87,7 @@ class JetTower extends Tower {
   }
   
   void shoot() {
-    JetStream stream = new JetStream(this, loc);
+    JetStream stream = new JetStream(this, target.pos);
     stream.make();
   }
 }
@@ -90,7 +102,7 @@ class OilTower extends Tower {
   }
   
   void shoot() {
-    OilSplasher splash = new OilSplasher(this, loc);
+    OilSplasher splash = new OilSplasher(this,target.pos);
     splash.make();
   }
 }
@@ -105,7 +117,7 @@ class BoulderTower extends Tower {
   }
   
   void shoot() {
-    Boulder rock = new Boulder(this, loc);
+    Boulder rock = new Boulder(this, target.pos);
     rock.make();
   }
 }
@@ -120,7 +132,7 @@ class LightningTower extends Tower {
   }
   
   void shoot() {
-    ChainLightning bolt = new ChainLightning(this, loc);
+    ChainLightning bolt = new ChainLightning(this, target.pos);
     bolt.make();
   }
 }
@@ -135,7 +147,7 @@ class SandTower extends Tower {
   }
   
   void shoot() {
-    SandSplasher wave = new SandSplasher(this, loc);
+    SandSplasher wave = new SandSplasher(this, target.pos);
     wave.make();
   }
 }
@@ -150,7 +162,7 @@ class BoomTower extends Tower {
   }
   
   void shoot() {
-    Boomer boom = new Boomer(this, loc);
+    Boomer boom = new Boomer(this, target.pos);
     boom.make();
   }
 }
