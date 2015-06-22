@@ -94,4 +94,16 @@ class Player {
    timer2 = frameCount;
   }
   }
+  
+  void collide() {
+    for (Enemy e : FPTD.enemies) {
+      int dist = dist(e.pos, this.loc);
+      if (dist < e.size + this.size) {
+        this.speed /= (0.1 * size * dist/2);
+        e.vel /= (0.1 * size * dist/2);
+        this.speed.add(this.loc.sub(e.pos) * 10);
+        e.vel.add(e.pos.sub(this.loc) * 10);
+      }
+    }
+  }
 }
