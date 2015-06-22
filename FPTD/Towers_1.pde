@@ -2,24 +2,27 @@ abstract class Tower {
   PVector loc;
   long timer = millis();
   Enemy target;
+  color Color = color(0,0,0);
   Tower(int x, int y) {
     loc = new PVector(x, y);
   }
-  
+  void place()
+  {
+    towers.add(this);
+  }
   int rank()
   {
     return 0;
   }
 
-   void shoot(){
-  }
-  
-  void upgrade()
-  {
-  }
+  void shoot(){}
+  void upgrade(){}
   void make()
   {
-    
+    translate(this.loc.x, this.loc.y, this.loc.z);
+    fill(Color);
+    box(10000,50000,10000);
+    translate(-this.loc.x, -this.loc.y, -this.loc.z);
   }
   void findNearest()
   {
@@ -41,6 +44,7 @@ class AirTower extends Tower {
   
   AirTower(int x, int y) {
     super(x, y);
+    Color = color(153, 204, 255);
   }
   
   void shoot() {
