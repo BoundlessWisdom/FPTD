@@ -1,10 +1,12 @@
 abstract class Projectile{
+  PVector loc = new PVector(0,0,0);
   PVector tloc = new PVector(0,0,0);
   int rank = 1;
   PVector vel = new PVector(0,0,0);
  Projectile(Towers temptow, PVector aloc){
    rank = temptow.rank();
   tloc.set(aloc);
+  loc.set(temptow.loc);
  }
  
   
