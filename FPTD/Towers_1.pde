@@ -6,10 +6,11 @@ abstract class Tower {
   Tower(int x, int y) {
     loc = new PVector(x, 0, y);
   }
-  void place()
+  Tower place()
   {
     towers.add(this);
     towered[(int) (this.loc.x + 150000) / 100000][(int) (this.loc.z + 150000) / 100000] = true;
+    return this;
   }
   int rank()
   {
