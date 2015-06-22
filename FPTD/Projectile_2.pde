@@ -52,6 +52,7 @@ void make(){
  fill(222,184,135,100);
  sphere(25000);
    vel = PVector.sub(loc,target);
+   vel.setMag(20000/60);
    loc.add(vel);
     translate(-loc.x, -loc.y, -loc.z);
 }
@@ -160,6 +161,7 @@ void make(){
  sphere(10000);
 
    vel = PVector.sub(loc,target);
+   vel.setMag(20000/60);
    loc.add(vel);
     translate(-loc.x, -loc.y, -loc.z);
 }
