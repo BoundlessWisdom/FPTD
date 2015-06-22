@@ -9,7 +9,7 @@ abstract class Projectile{
   loc.set(temptow.loc);
  }
  
-  
+  abstract void make();
 }
 
 class Airbullet extends Projectile{
@@ -19,7 +19,9 @@ class Airbullet extends Projectile{
  } 
  
  void make(){
-   fill(255,255,255,80);}
+   fill(255,255,255,80);
+   translate(loc.x,loc.y,loc.z);
+ sphere(5000);}
   
 }
 
@@ -29,7 +31,9 @@ class Earthbullet extends Projectile{
   }
   
   void make(){
-      fill(222,184,135);  
+      fill(222,184,135); 
+      translate(loc.x,loc.y,loc.z);
+ sphere(5000); 
   }
 }
 
@@ -39,7 +43,8 @@ Firebullet(){
   
 }
 void make(){
- 
+  translate(loc.x,loc.y,loc.z);
+ sphere(5000);
    fill(255,0,0,80); 
    vel = PVector.sub(loc,tloc);
    loc.add(vel);
