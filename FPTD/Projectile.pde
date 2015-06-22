@@ -129,18 +129,4 @@ void make(){
   
 }
 }
-class FireBullet extends Projectile{
 
-FireBullet(Tower temptow, PVector aloc){
-  super(temptow, aloc);
-}
-void make(){
-  translate(loc.x,loc.y,loc.z);
-   fill(0,0,100);
- sphere(10000);
-   
-   vel = PVector.sub(loc,tloc);
-   loc.add(vel);
-  
-}
-}
