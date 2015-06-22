@@ -8,6 +8,7 @@ abstract class Enemy
   int xpYield = 100;
   public void onSpawn(int corner, boolean fromOtherEnemy, Enemy from)
   {
+     System.out.print("spawn");
     if(fromOtherEnemy)
     {
       this.pos = PVector.add(from.pos, new PVector(random(10), random(10), random(10)));
@@ -30,7 +31,6 @@ abstract class Enemy
         this.pos = new PVector(0,0,0);
         break;
     }
-    enemies.add(this);
     initializeSphere(30,30);
   }
   public void onAttack(Player tgt)
@@ -42,6 +42,7 @@ abstract class Enemy
   }
   public void onDeath()
   {
+    System.out.print("die");
     enemies.remove(this);
     plr.xp += xpYield;
   }
@@ -78,6 +79,7 @@ abstract class Enemy
 class BasicEnemy extends Enemy{
   public BasicEnemy()
   {
+    this.onSpawn((int)random(3), false, null);
     tex = loadImage("fireball_small.png");
     atk = def = hp = 1;
     speed = 6;

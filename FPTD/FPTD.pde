@@ -6,7 +6,7 @@ ArrayList <Tower> towers = new ArrayList <Tower> (); //Creates an arraylist for 
 ArrayList <Enemy> enemies = new ArrayList<Enemy>(); //Creates an arraylist for enemies.
 int baseMouseX = width/2; //Sets the default mouse coordinates (this line and next)
 int baseMouseY = height/2;//to be half of the total window height and width, setting it dead center.
-Player plr; //Creates a player of player.
+Player plr = new Player(); //Creates a player of player.
 boolean[] keys = new boolean[255]; //Array for booleans.
 
 boolean[][] towered = new boolean[31][31];
@@ -15,7 +15,15 @@ float xValue, yValue;
 
 void setup(){
  size(displayWidth, displayHeight,P3D); //Sets default window height, and tells processing it's a 3D environment.
- 
+ plr.setupPlayer();
+ enemies.add(new BasicEnemy());
+ for(int i = 0; i < 31; i++)
+ {
+   for(int j = 0; j < 31; j++)
+   {
+     grid[i][j] =  new ArrayList<Enemy>();
+   }
+ }
 }
 
 
@@ -39,7 +47,7 @@ for(int i= towers.size(); i>0; i--){
  Tower mytow = towers.get(i); 
  mytow.make();
 }
-  
+   System.out.print(enemies.toString());
   for (Enemy e : enemies) {
     xValue = (e.pos.x + 5000 * sign(e.pos.x)) / 10000;
     yValue = (e.pos.y + 5000 * sign(e.pos.y)) / 10000;
@@ -47,27 +55,34 @@ for(int i= towers.size(); i>0; i--){
       xValue = 15 * sign(xValue);
     if (abs(yValue) > 15)
       yValue = 15 * sign(yValue);
-    grid[(int)xValue][(int)yValue].add(e);
+      
+    grid[(int)xValue + 15][(int)yValue + 15].add(e);
+    e.make();
   }
   
   plr.collide();
   
   for (int i = -15; i < 16; i++)     //x
     for (int j = -15; j < 16; j++)   //y
-      if (!towered[i][j])            //Only checks free squares
-        for (Enemy e : grid[i][j]) {
+      if (!towered[i + 15][j+15])            //Only checks free squares
+        for (Enemy e : grid[i+15][j+15]) {
           for (Tower t : towers)
             e.collide(t);
           for (int k = -1; i < 2; k++)
             for (int l = -1; i < 2; l++)
               if (i + k > -16 && i + k < 16 && j + l > -16 && j + l < 16)
-                if (!towered[i + k][j + l])
-                  for (Enemy f : grid[i + k][j + l])
+                if (!towered[i + k+15][j + l+15])
+                  for (Enemy f : grid[i + k+15][j + l+15])
                     e.collide(f);
         }
 }
-
-
+void keyPressed()
+{
+  if(key != CODED)
+  {
+    keys[key] = true;
+  }
+}
 
 static float sign(float num) {
   return num < 0 ? -1 : 1;
