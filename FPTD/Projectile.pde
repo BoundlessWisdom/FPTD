@@ -46,9 +46,10 @@ void make(){
   translate(loc.x,loc.y,loc.z);
  fill(255,255,255);
  strokeWeight(500);
- line(loc.x, loc.y, tloc.x, tloc.y);
+ line(loc.x, loc.y,loc.z, tloc.x, tloc.y, tloc.z);
    vel = PVector.sub(loc,tloc);
    loc.add(vel);
+   strokeWeight(1);
   
 }
 }
