@@ -8,22 +8,37 @@ void make(){
  
    vel = PVector.sub(loc,target);
    loc.add(vel);
-  
+  translate(-loc.x, -loc.y, -loc.z);
 }
 }
 
 class FireCracker extends Projectile{
-
+float fc = 0;
+PVector acc= new PVector(0,0,0);
 FireCracker(Tower temptow, PVector aloc){
   super(temptow, aloc);
 }
+acc = PVector.random3D();
 void make(){
   translate(loc.x,loc.y,loc.z);
   fill(255,0,0,100);
  box(10000,200,200);
    vel = PVector.sub(loc,target);
+   vel.setMag(vel.mag()+acc);
+   vel.add(acc);
    loc.add(vel);
   translate(-loc.x, -loc.y, -loc.z);
+  if(frameCount-fc>60){
+  acc = PVector.random3D();}
+}
+void explode(){
+ if(loc.z<=30){
+   translate(loc.x, loc.y, loc.z);
+   acc.set(0,0,0);
+ vel.set(0,0,0);
+ fill(255,0,0,100);
+ sphere(12000);
+ } 
 }
 }
 

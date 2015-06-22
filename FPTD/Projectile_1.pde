@@ -2,15 +2,11 @@ abstract class Projectile {
   PVector loc = new PVector(0, 0, 0);
   PVector target = new PVector(0, 0, 0);
   PVector vel = new PVector(0, 0, 0);
-  int dmg = 10;
-  public Projectile(Tower src, PVector target) {
-    this.target.set(target);
+  public Projectile(Tower src, Enemy target) {
+    this.target.set(loc);
     loc.set(src.loc);
   }
-  public void strike(Enemy struck)
-  {
-    struck.hp -= dmg;
-  }
+
   abstract void make();
 }
 
@@ -24,6 +20,9 @@ class AirBullet extends Projectile {
     fill(255, 255, 255, 80);
     translate(loc.x, loc.y, loc.z);
     sphere(5000);
+    vel = PVector.sub(loc, target);
+    vel.setMag(1500);
+    loc.add(vel);
     translate(-loc.x, -loc.y, -loc.z);
   }
 }
@@ -40,6 +39,7 @@ class FireBullet extends Projectile {
     sphere(10000);
 
     vel = PVector.sub(loc, target);
+    vel.setMag(1500);
     loc.add(vel);
     translate(-loc.x, -loc.y, -loc.z);
   }
@@ -55,6 +55,9 @@ class EarthBullet extends Projectile {
     fill(222, 184, 135); 
     translate(loc.x, loc.y, loc.z);
     sphere(5000);
+    vel = PVector.sub(loc, target);
+    vel.setMag(2000);
+    loc.add(vel);
     translate(-loc.x, -loc.y, -loc.z);
   }
 }
@@ -104,6 +107,7 @@ class Boulder extends Projectile {
     sphere(25000);
 
     vel = PVector.sub(loc, target);
+    vel.setMag(10000/60);
     loc.add(vel);
     translate(-loc.x, -loc.y, -loc.z);
   }
@@ -153,6 +157,7 @@ class Boomer extends Projectile {
     sphere(10000);
 
     vel = PVector.sub(loc, target);
+    vel.setMag(10000/60);
     loc.add(vel);
     translate(-loc.x, -loc.y, -loc.z);
   }
