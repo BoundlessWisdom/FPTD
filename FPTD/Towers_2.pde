@@ -157,7 +157,7 @@ class HellfireTower extends Tower {
   }
   
   void shoot() {
-    Hellfire hellfire = new Hellfire(this, 1);
+    Hellfire hellfire = new Hellfire(this, loc);
     hellfire.make();
   }
 }
@@ -172,7 +172,7 @@ class AftershockTower extends Tower {
   }
   
   void shoot() {
-    Aftershock shock = new Aftershock(this, 1);
+    Aftershock shock = new Aftershock(this, loc);
     shock.make();
   }
 }

@@ -1,11 +1,11 @@
 abstract class Projectile{
   PVector loc = new PVector(0,0,0);
-  PVector tloc = new PVector(0,0,0);
+  PVector target = new PVector(0,0,0);
   int rank = 1;
   PVector vel = new PVector(0,0,0);
   public Projectile(Tower temptow, PVector aloc){
    rank = temptow.rank();
-  tloc.set(aloc);
+  target.set(aloc);
   loc.set(temptow.loc);
  }
  
@@ -46,8 +46,8 @@ void make(){
   translate(loc.x,loc.y,loc.z);
  fill(255,255,255);
  strokeWeight(500);
- line(loc.x, loc.y,loc.z, tloc.x, tloc.y, tloc.z);
-   vel = PVector.sub(loc,tloc);
+ line(loc.x, loc.y,loc.z, target.x, target.y, target.z);
+   vel = PVector.sub(loc,target);
    loc.add(vel);
    strokeWeight(1);
   
@@ -62,7 +62,7 @@ OilSplasher(Tower temptow, PVector aloc){
 void make(){
   translate(loc.x,loc.y,loc.z);
  
-   vel = PVector.sub(loc,tloc);
+   vel = PVector.sub(loc,target);
    loc.add(vel);
   
 }
@@ -78,7 +78,7 @@ void make(){
     fill(222,184,135,100); 
  sphere(25000);
  
-   vel = PVector.sub(loc,tloc);
+   vel = PVector.sub(loc,target);
    loc.add(vel);
   
 }
@@ -94,7 +94,7 @@ void make(){
      fill(255,255,255,100); 
 
 
-   vel = PVector.sub(loc,tloc);
+   vel = PVector.sub(loc,target);
    loc.add(vel);
   
 }
@@ -108,7 +108,7 @@ SandSplasher(Tower temptow, PVector aloc){
 void make(){
   translate(loc.x,loc.y,loc.z);
 
-   vel = PVector.sub(loc,tloc);
+   vel = PVector.sub(loc,target);
    loc.add(vel);
   
 }
@@ -124,9 +124,8 @@ void make(){
    fill(0,0,0,100);
  sphere(10000);
    
-   vel = PVector.sub(loc,tloc);
+   vel = PVector.sub(loc,target);
    loc.add(vel);
   
 }
 }
-
