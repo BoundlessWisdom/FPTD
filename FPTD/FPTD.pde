@@ -76,3 +76,15 @@ for(int i= towers.size(); i>0; i--){
 }
 
 }
+
+static int abs(int num) {
+  return num < 0 ? num * -1 : num;
+}
+
+static int sign(int num) {
+  return num < 0 ? -1 : 1;
+}
+
+static int dist(PVector one, PVector two) {
+  return PVector.sub(one, two).mag();
+}
