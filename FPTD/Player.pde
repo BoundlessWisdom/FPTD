@@ -90,7 +90,7 @@ class Player {
    int timer = frameCount;
    int timer2 = 0;
    if(keys['e'] && abs(timer-timer2) > 60){
-   fireballs.add(new Fireball(loc, movedirection)); 
+   fireballs.add(new Fireball(location, movedirection)); 
    timer2 = frameCount;
   }
   }

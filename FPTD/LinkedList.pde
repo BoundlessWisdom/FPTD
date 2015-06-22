@@ -1,6 +1,6 @@
 class LinkedList<T> {
-  Node firstNode = new Node<T>();
-  Node lastNode = new Node<T>();
+  Node firstNode = null;
+  Node lastNode = null;
   
   int length = 0;
   
@@ -38,7 +38,7 @@ class Node<T> {
   Node<T> last;
   Node<T> next;
   
-  Node<T>(LinkedList<T> l, Node<T> n, T e) {
+  Node(LinkedList<T> l, Node<T> n, T e) {
     this.list = l;
     this.last = n;
     this.element = e;
@@ -58,10 +58,12 @@ class Node<T> {
   
   Node<T> setFirst() {
     firstNode = true;
+    return this;
   }
   
   Node<T> setLast() {
     lastNode = true;
+    return this;
   }
   
   void clearLast() {
@@ -79,7 +81,7 @@ class Node<T> {
     }
     else if (firstNode) {
       next.setFirst();
-      next.setLast(null);
+      next.setLast();
       list.delete();
     }
     else {
