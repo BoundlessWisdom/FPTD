@@ -6,7 +6,7 @@ class Player {
   int atk = 1;
   int def = 1;
   int level = 1;
-  
+  int xp = 0, gold = 0;
   PVector location = new PVector(0, 0, 0);
   
   float speed;
@@ -24,13 +24,23 @@ class Player {
   void update(long dtime) {
     updateLook(dtime);
     updateLoc(dtime);
+    if(xp >10000)
+    {
+      levelUp();
+    }
+    if(health <= 0)
+    {
+      //die
+    }
+    if(level >= 5)
+    {
+      //win in demo
+    }
   }
   
   void updateLook(long dtime) {
     look.add((mouseX - baseMouseX) * angleMult, 0, (mouseY - baseMouseY) * angleMult);
     robot.mouseMove(baseMouseX, baseMouseY);
-   
-    
   }
   
   void updateLoc(long dtime) {
@@ -65,5 +75,14 @@ class Player {
     } catch (AWTException e) {
       e.printStackTrace();
     }
+  }
+  void levelUp()
+  {
+    level += 1;
+    atk += 1;
+    def += 1;
+    health += 10;
+    speed += 1;
+    xp -= 10000;
   }
 }

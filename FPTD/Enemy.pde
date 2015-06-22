@@ -4,6 +4,7 @@ abstract class Enemy
   public PVector vel, pos;
   public String name = "Basic";
   PImage tex = null;
+  int xpYield = 100;
   public void onSpawn(int corner, boolean fromOtherEnemy, Enemy from)
   {
     if(fromOtherEnemy)
@@ -41,6 +42,7 @@ abstract class Enemy
   public void onDeath()
   {
     enemies.remove(this);
+    plr.xp += xpYield;
   }
   public void tick()//note to self: this.velocity = player.pos.sub(this.pos).normalize().mul(this.speed); for tracking
   {
@@ -76,6 +78,7 @@ class BasicPlusEnemy extends Enemy{
     pos = new PVector(0,0,0);
     vel = new PVector(0,0,0);
     name = "Basic+";
+    xpYield = 200;
   }
 }
 class BigEnemy extends Enemy{
@@ -86,6 +89,7 @@ class BigEnemy extends Enemy{
     pos = new PVector(0,0,0);
     vel = new PVector(0,0,0);
     name = "Big";
+    xpYield = 1000;
   }
 }
 class HugeEnemy extends Enemy{
@@ -96,6 +100,7 @@ class HugeEnemy extends Enemy{
     pos = new PVector(0,0,0);
     vel = new PVector(0,0,0);
     name = "Huge";
+    xpYield = 2000;
   }
 }
 class BossEnemy extends Enemy{
@@ -106,6 +111,7 @@ class BossEnemy extends Enemy{
     pos = new PVector(0,0,0);
     vel = new PVector(0,0,0);
     name = "Boss";
+    xpYield = 10000;
   }
 }
 class BombEnemy extends Enemy{
@@ -116,6 +122,7 @@ class BombEnemy extends Enemy{
     pos = new PVector(0,0,0);
     vel = new PVector(0,0,0);
     name = "Bomb";
+    xpYield = 5000;
   }
   public void onDeath()
   {
@@ -135,16 +142,54 @@ class BombEnemy extends Enemy{
   }
 }
 class SplitterEnemy extends Enemy{
+  int splits = 0;
   public SplitterEnemy()
   {
     atk = def = speed = 8;
     hp = 16;
     pos = new PVector(0,0,0);
     vel = new PVector(0,0,0);
+    xpYield = 1000;
     name = "Splitter";
+  }
+  public SplitterEnemy(int splits)
+  {
+    this.splits = splits;
+    if(splits > 4)
+    {
+      return;
+    }
+    else if(splits == 0)
+    {
+      atk = def = speed = 8;
+      hp = 16;
+      pos = new PVector(0,0,0);
+      vel = new PVector(0,0,0);
+      xpYield = 1000;
+      name = "Splitter";
+    }
+    else
+    {
+     atk = def = speed = 4/splits;
+     hp = 8/splits;
+     pos = new PVector(0,0,0);
+     vel = new PVector(0,0,0);
+     name = "Split Splitter";
+     xpYield = 500/splits;
+    }
   }
   public void onDeath()
   {
-    //Split
+    plr.xp += xpYield;
+    splits++;
+    enemies.remove(this);
+    if(splits > 4)
+      return;
+    SplitterEnemy e1 = new SplitterEnemy(splits);
+    e1.onSpawn(0,true,this);
+    SplitterEnemy e2 = new SplitterEnemy(splits);
+    e2.onSpawn(0,true,this);
+    enemies.add(e1);
+    enemies.add(e2);
   }
 }
