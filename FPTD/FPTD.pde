@@ -1,29 +1,29 @@
-import ddf.minim.*; //This imports the audio libraries.
+import ddf.minim.*;
 AudioPlayer bgm;
 Minim minim;
 
 
-ArrayList <Projectile> projectiles = new ArrayList <Projectile> (); //Creates an array list for projectiles.
-ArrayList <Tower> towers = new ArrayList <Tower> ();                //Creates a array list for the towers.
-ArrayList <Enemy> enemies = new ArrayList<Enemy>();                 //Creates an arraylist for the enemies.
-int baseMouseX = width/2;    //Sets default mouse coordinates for x to half the width.
-int baseMouseY = height/2;   //Sets default mouse coordinates for y to half the height.
-Player plr; //Creates a player of player.
-boolean[] keys = new boolean[255];    //Creates an array of boolean of 255 in length.
+ArrayList <Projectile> projectiles = new ArrayList <Projectile> ();
+ArrayList <Tower> towers = new ArrayList <Tower> ();              
+ArrayList <Enemy> enemies = new ArrayList<Enemy>();           
+int baseMouseX = width/2;    
+int baseMouseY = height/2;   
+Player plr;
+boolean[] keys = new boolean[255];    
 
 
-void setup(){ //Setup void method.
- size(displayWidth, displayHeight,P3D); //Sets the window height and tells Processing to have a 3D world.
+void setup(){ 
+ size(displayWidth, displayHeight,P3D);
  
-   minim = new Minim(this); //Creates a new minimum player of minim.
-   bgm = minim.loadFile ("The Cannery.mp3",5048);//Tells the audio library to load The Cannery MP3 of bitrate listed.
+   minim = new Minim(this);
+   bgm = minim.loadFile ("The Cannery.mp3",5048);
 }
 
 
 void draw(){
-   if (!bgm.isPlaying ()) { //makes the song play.
-      bgm.rewind (); //Rewinds the song to beginning.
-      bgm.play ();//Plays the song again.
+   if (!bgm.isPlaying ()) {
+      bgm.rewind ();
+      bgm.play ();
     }
   frameRate(60);
   background(0,0,255);
