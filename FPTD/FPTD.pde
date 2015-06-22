@@ -23,7 +23,6 @@ void draw(){
  Player.update();
 for(int i=projectiles.size(); i>0; i--){
  Projectile myproj = projectiles.get(i);
- myproj.
 }
 
 for(int i= towers.size(); i>0; i--){
@@ -32,7 +31,3 @@ mytow.make();
 }
 
 }
-
-
-
-
