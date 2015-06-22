@@ -3,7 +3,7 @@ abstract class Projectile{
   PVector tloc = new PVector(0,0,0);
   int rank = 1;
   PVector vel = new PVector(0,0,0);
- Projectile(Tower temptow, PVector aloc){
+  public Projectile(Tower temptow, PVector aloc){
    rank = temptow.rank();
   tloc.set(aloc);
   loc.set(temptow.loc);
@@ -14,8 +14,8 @@ abstract class Projectile{
 
 class Airbullet extends Projectile{
 
- Airbullet(){
-
+ Airbullet(Tower temptow, PVector aloc){
+  super(temptow, aloc);
  } 
  
  void make(){
@@ -26,8 +26,8 @@ class Airbullet extends Projectile{
 }
 
 class Earthbullet extends Projectile{
-  Earthbullet(){
-
+  Earthbullet(Tower temptow, PVector aloc){
+  super(temptow, aloc);
   }
   
   void make(){
@@ -39,8 +39,8 @@ class Earthbullet extends Projectile{
 
 class JetStream extends Projectile{
 
-JetStream(){
-  
+JetStream(Tower temptow, PVector aloc){
+  super(temptow, aloc);
 }
 void make(){
   translate(loc.x,loc.y,loc.z);
@@ -56,8 +56,8 @@ void make(){
 
 class OilSplasher extends Projectile{
 
-OilSplasher(){
-  
+OilSplasher(Tower temptow, PVector aloc){
+  super(temptow, aloc);
 }
 void make(){
   translate(loc.x,loc.y,loc.z);
@@ -70,8 +70,8 @@ void make(){
 
 class Boulder extends Projectile{
 
-Boulder(){
-  
+Boulder(Tower temptow, PVector aloc){
+  super(temptow, aloc);
 }
 void make(){
   translate(loc.x,loc.y,loc.z);
@@ -86,8 +86,8 @@ void make(){
 
 class ChainLightning extends Projectile{
 
-ChainLightning(){
-  
+ChainLightning(Tower temptow, PVector aloc){
+  super(temptow, aloc);
 }
 void make(){
   translate(loc.x,loc.y,loc.z);
@@ -102,8 +102,8 @@ void make(){
 
 class SandSplasher extends Projectile{
 
-SandSplasher(){
-  
+SandSplasher(Tower temptow, PVector aloc){
+  super(temptow, aloc);
 }
 void make(){
   translate(loc.x,loc.y,loc.z);
@@ -116,8 +116,8 @@ void make(){
 
 class Boomer extends Projectile{
 
-Boomer(){
-  
+Boomer(Tower temptow, PVector aloc){
+  super(temptow, aloc);
 }
 void make(){
   translate(loc.x,loc.y,loc.z);
@@ -129,5 +129,3 @@ void make(){
   
 }
 }
-
-
