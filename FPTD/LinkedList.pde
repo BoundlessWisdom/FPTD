@@ -38,7 +38,7 @@ class Node<T> {
   Node<T> last;
   Node<T> next;
   
-  <T> Node(LinkedList<T> l, Node<T> n, T e) {
+  Node<T>(LinkedList<T> l, Node<T> n, T e) {
     this.list = l;
     this.last = n;
     this.element = e;
@@ -56,11 +56,11 @@ class Node<T> {
     next = n;
   }
   
-  void setFirst() {
+  Node<T> setFirst() {
     firstNode = true;
   }
   
-  void setLast() {
+  Node<T> setLast() {
     lastNode = true;
   }
   
