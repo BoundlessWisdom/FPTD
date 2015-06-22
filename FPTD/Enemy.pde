@@ -6,9 +6,10 @@ abstract class Enemy
   public String name = "Basic";
   PImage tex = null;
   int xpYield = 100;
+  color Color = color(0,0,0);
   public void onSpawn(int corner, boolean fromOtherEnemy, Enemy from)
   {
-     System.out.print("spawn");
+     
     if(fromOtherEnemy)
     {
       this.pos = PVector.add(from.pos, new PVector(random(10), random(10), random(10)));
@@ -28,10 +29,11 @@ abstract class Enemy
         this.pos = new PVector(150000,0, 150000);
         break;
       default:
-        this.pos = new PVector(0,0,0);
+        this.pos = new PVector(1000,0,0);
         break;
     }
-    initializeSphere(30,30);
+    initializeSphere(300,300);
+    System.out.print("spawn");
   }
   public void onAttack(Player tgt)
   {
@@ -58,7 +60,10 @@ abstract class Enemy
   }
   public void make()
   {
-    textureSphere(pos.x,pos.y,pos.z,tex);
+      fill(Color);
+      translate(pos.x, pos.y, pos.z);
+      sphere(size);
+      translate(-pos.x, -pos.y, -pos.z);
   }
    void collide(Enemy e) {
     float dist = dist(e.pos, this.pos);
@@ -79,12 +84,13 @@ abstract class Enemy
 class BasicEnemy extends Enemy{
   public BasicEnemy()
   {
-    this.onSpawn((int)random(3), false, null);
+    this.onSpawn(4, false, null);
     tex = loadImage("fireball_small.png");
     atk = def = hp = 1;
     speed = 6;
     pos = new PVector(0,0,0);
     vel = new PVector(0,0,0);
+    Color = color(255, 153, 51);
   }
 }
 
@@ -98,6 +104,7 @@ class BasicPlusEnemy extends Enemy{
     vel = new PVector(0,0,0);
     name = "Basic+";
     xpYield = 200;
+     Color = color(255, 153, 51);
   }
 }
 class BigEnemy extends Enemy{
@@ -110,6 +117,7 @@ class BigEnemy extends Enemy{
     vel = new PVector(0,0,0);
     name = "Big";
     xpYield = 1000;
+    Color = color(255, 102, 0);
   }
 }
 class HugeEnemy extends Enemy{
@@ -122,6 +130,7 @@ class HugeEnemy extends Enemy{
     name = "Huge";
     xpYield = 2000;
      tex = loadImage("fireball_large.png");
+     Color = color(255, 0, 102);
   }
 }
 class BossEnemy extends Enemy{
@@ -133,6 +142,7 @@ class BossEnemy extends Enemy{
     vel = new PVector(0,0,0);
     name = "Boss";
     xpYield = 10000;
+    Color = color(255, 0, 255);
      tex = loadImage("bomb_boss_right_active.png");
   }
 }
@@ -146,6 +156,7 @@ class BombEnemy extends Enemy{
     vel = new PVector(0,0,0);
     name = "Bomb";
     xpYield = 5000;
+    Color = color(0, 0, 0);
   }
   public void onDeath()
   {

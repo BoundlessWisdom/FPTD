@@ -5,6 +5,7 @@ abstract class Tower {
   color Color = color(0,0,0);
   Tower(int x, int y) {
     loc = new PVector(x, 0, y);
+    this.place();
   }
   void place()
   {

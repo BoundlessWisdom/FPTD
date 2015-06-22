@@ -17,36 +17,41 @@ void setup(){
  size(displayWidth, displayHeight,P3D); //Sets default window height, and tells processing it's a 3D environment.
  plr.setupPlayer();
  enemies.add(new BasicEnemy());
- for(int i = 0; i < 31; i++)
+baseMouseX = width/2;baseMouseY = height/2;
+//AirTower t = new AirTower(10000,0);
+}
+
+
+void draw(){
+   
+  frameRate(60); //Sets framerate to 60.
+  //background(0,0,255); //Sets default color.
+  
+  translate(300,.95*height,-500); //Moves it below.
+  fill(0,255,0); //Fills the rest of the screen with a color.
+
+  box(310000,310,310000);  //Creates the floor.
+   translate(-300,-.95*height,500);
+ plr.update(millis()); //Updates the plr method.
+for(int i=projectiles.size(); i>0; i--){
+ Projectile myproj = projectiles.get(i);
+ myproj.make(); 
+ System.out.print("q");
+}
+
+for(Tower t : towers){
+ t.make();
+ t.findNearest();
+ t.shoot();
+ System.out.print("r");
+}
+for(int i = 0; i < 31; i++)
  {
    for(int j = 0; j < 31; j++)
    {
      grid[i][j] =  new ArrayList<Enemy>();
    }
  }
-}
-
-
-void draw(){
-  frameRate(60); //Sets framerate to 60.
-  background(0,0,255); //Sets default color.
-  
-  translate(300,.95*height,-500); //Moves it below.
-  fill(0,255,0); //Fills the rest of the screen with a color.
-
-  box(310000,310,310000);  //Creates the floor.
-  
- plr.update(0); //Updates the plr method.
-for(int i=projectiles.size(); i>0; i--){
- Projectile myproj = projectiles.get(i);
- myproj.make(); 
- 
-}
-
-for(int i= towers.size(); i>0; i--){
- Tower mytow = towers.get(i); 
- mytow.make();
-}
    System.out.print(enemies.toString());
   for (Enemy e : enemies) {
     xValue = (e.pos.x + 5000 * sign(e.pos.x)) / 10000;
@@ -55,13 +60,13 @@ for(int i= towers.size(); i>0; i--){
       xValue = 15 * sign(xValue);
     if (abs(yValue) > 15)
       yValue = 15 * sign(yValue);
-      
+       System.out.print("s");
     grid[(int)xValue + 15][(int)yValue + 15].add(e);
     e.make();
   }
   
-  plr.collide();
-  
+  //plr.collide();
+  /*
   for (int i = -15; i < 16; i++)     //x
     for (int j = -15; j < 16; j++)   //y
       if (!towered[i + 15][j+15])            //Only checks free squares
@@ -74,7 +79,9 @@ for(int i= towers.size(); i>0; i--){
                 if (!towered[i + k+15][j + l+15])
                   for (Enemy f : grid[i + k+15][j + l+15])
                     e.collide(f);
+                    
         }
+        */
 }
 void keyPressed()
 {
