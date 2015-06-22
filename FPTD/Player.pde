@@ -16,6 +16,8 @@ class Player {
   PVector look = new PVector(0, 0);
   float angleMult;
   
+  PVector movedirection = new PVector(0,0);
+  
   
   Robot robot;
   
@@ -27,24 +29,34 @@ class Player {
   void updateLook(long dtime) {
     look.add((mouseX - baseMouseX) * angleMult, 0, (mouseY - baseMouseY) * angleMult);
     robot.mouseMove(baseMouseX, baseMouseY);
+   
+    
   }
   
   void updateLoc(long dtime) {
     if (key!= CODED) { //stops errors with keys boolean from unwanted type & register key input
         keys [key] = true;
+       
       }
 
       if (key == CODED) { //stop errors with keys boolean unwanted type & register key input
         keys [keyCode] = true;
       }
       if(keys['w']){
-      location.add(0,0,speed*dtime);}
+          movedirection = PVector.fromAngle(look.x*PI/180);
+      location.add(movedirection.mult(speed*dtime));}
        if(keys['a']){
-      location.add(-speed*dtime,0,0);}
+           movedirection = PVector.fromAngle(look.y*PI/180);
+           movedirection.rotate(-PI/2);
+      location.add(movedirection.mult(speed*dtime));}
        if(keys['s']){
-      location.add(speed*dtime,0,0);}
+           movedirection = PVector.fromAngle(look.x*PI/180);
+           movedirection.rotate(PI);
+      location.add(movedirection.mult(speed*dtime));}
        if(keys['d']){
-      location.add(0,0,-speed*dtime);}
+           movedirection = PVector.fromAngle(look.y*PI/180);
+           movedirection.rotate(PI/2);
+      location.add(movedirection.mult(speed*dtime));}
   }
   
  void setupPlayer() {
