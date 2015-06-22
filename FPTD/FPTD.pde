@@ -4,7 +4,7 @@ ArrayList <Enemy> enemies = new ArrayList<Enemy>();
 int basemousex = width/2;
 int basemousey = height/2;
 Player plr;
-
+boolean[] keys = new boolean[255];
 void setup(){
  size(displayWidth, displayHeight,P3D);
  
