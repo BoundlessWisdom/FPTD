@@ -1,5 +1,5 @@
 import ddf.minim.*;
-Audioplayer bgm;
+AudioPlayer bgm;
 Minim minim;
 
 
@@ -15,7 +15,8 @@ boolean[] keys = new boolean[255];
 void setup(){
  size(displayWidth, displayHeight,P3D);
  
-  
+   minim = new Minim(this);
+   bgm = minim.loadFile ("The Cannery.mp3",5048);
 }
 
 
@@ -26,8 +27,7 @@ void draw(){
     }
   frameRate(60);
   background(0,0,255);
-   minim = new Minim(this);
-   bgm = minim.loadFile ("The Cannery.mp3",5048);
+  
   translate(300,.95*height,-500);
   fill(0,255,0);
 
