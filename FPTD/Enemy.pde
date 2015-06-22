@@ -31,7 +31,7 @@ abstract class Enemy
   }
   public void onAttack(Player tgt)
   {
-    
+    plr.health -= this.atk;
   }
   public void onDeath(World theWorld)
   {

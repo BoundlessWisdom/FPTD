@@ -1,7 +1,7 @@
 class Player {
   PVector location = new PVector(0, 0, 0);
   PVector look = new PVector(0, 0, 0);
-  
+  int health = 20;
   
   
   
