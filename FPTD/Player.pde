@@ -48,7 +48,7 @@ class Player {
       look.y = 90;
     else if (look.y < -90)
       look.y = -90;
-    robot.mouseMove(baseMouseX, baseMouseY);
+    robot.mouseMove(baseMouseX, baseMouseY + 56);
   }
   
   void updateLoc(long dtime) {
