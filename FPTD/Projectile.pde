@@ -29,6 +29,9 @@ class Earthbullet extends Projectile{
 }
 
 class Firebullet extends Projectile{
+
+Firebullet(){
+  
 }
 void make(){
    fill(255,0,0,80); 
