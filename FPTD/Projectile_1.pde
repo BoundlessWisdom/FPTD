@@ -2,11 +2,15 @@ abstract class Projectile {
   PVector loc = new PVector(0, 0, 0);
   PVector target = new PVector(0, 0, 0);
   PVector vel = new PVector(0, 0, 0);
+  int dmg = 10;
   public Projectile(Tower src, PVector target) {
     this.target.set(target);
     loc.set(src.loc);
   }
-
+  public void strike(Enemy struck)
+  {
+    struck.hp -= dmg;
+  }
   abstract void make();
 }
 
