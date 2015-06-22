@@ -9,7 +9,7 @@ abstract class Tower {
   void place()
   {
     towers.add(this);
-    towered[(int)(this.loc.x/100000)][(int)(this.loc.z/100000)] = true;
+    towered[(int) (this.loc.x + 150000) / 100000][(int) (this.loc.z + 150000) / 100000] = true;
   }
   int rank()
   {
