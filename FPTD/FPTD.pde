@@ -30,6 +30,7 @@ for(int i=projectiles.size(); i>0; i--){
 
 for(int i= towers.size(); i>0; i--){
  Tower mytow = towers.get(i); 
+ mytow.make();
 }
 
 }

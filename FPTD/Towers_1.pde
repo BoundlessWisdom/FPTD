@@ -17,6 +17,10 @@ abstract class Tower {
   void upgrade()
   {
   }
+  void make()
+  {
+    
+  }
 }
 
 

@@ -3,6 +3,7 @@ abstract class Enemy
   public int atk, def, hp, speed;
   public PVector vel, pos;
   public String name = "Basic";
+  PImage tex = null;
   public void onSpawn(int corner, boolean fromOtherEnemy, Enemy from)
   {
     if(fromOtherEnemy)
@@ -28,6 +29,7 @@ abstract class Enemy
         break;
     }
     enemies.add(this);
+    initializeSphere(30,30);
   }
   public void onAttack(Player tgt)
   {
@@ -40,7 +42,7 @@ abstract class Enemy
   {
     enemies.remove(this);
   }
-  public  void tick()//note to self: this.velocity = player.pos.sub(this.pos).normalize().mul(this.speed); for tracking
+  public void tick()//note to self: this.velocity = player.pos.sub(this.pos).normalize().mul(this.speed); for tracking
   {
     this.vel = PVector.sub(this.pos, plr.location);
     vel.normalize();
@@ -49,6 +51,10 @@ abstract class Enemy
     {
       this.onDeath();
     }
+  }
+  public void make()
+  {
+    textureSphere(pos.x,pos.y,pos.z,tex);
   }
 }
 
