@@ -18,7 +18,6 @@ PVector acc= new PVector(0,0,0);
 FireCracker(Tower temptow, PVector aloc){
   super(temptow, aloc);
 }
-acc = PVector.random3D();
 void make(){
   translate(loc.x,loc.y,loc.z);
   fill(255,0,0,100);
