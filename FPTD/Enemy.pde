@@ -3,16 +3,24 @@ abstract class Enemy
   public int atk, def, hp, speed;
   public PVector vel, pos;
   public String name = "Basic";
-  public abstract void onSpawn(boolean fromOtherEnemy);
+  public abstract void onSpawn(int corner, boolean fromOtherEnemy);
   public abstract void onAttack(Player tgt);
-  public abstract void onDeath();
-  public abstract void tick(); //note to self: this.velocity = player.pos.sub(this.pos).normalize().mul(this.speed); for tracking
+  public abstract void onDeath(World theWorld);
+  public abstract void tick(World theWorld); //note to self: this.velocity = player.pos.sub(this.pos).normalize().mul(this.speed); for tracking
 }
 
 class BasicEnemy extends Enemy{
-  @Override
-  public void onSpawn(boolean fromOtherEnemy)
+  public BasicEnemy()
   {
+    atk = def = hp = 1;
+    speed = 6;
+    pos = new PVector(0,0,0);
+    vel = new PVector(0,0,0);
+  }
+  @Override
+  public void onSpawn(int corner, boolean fromOtherEnemy)
+  {
+    
   }
   @Override
   public void onAttack(Player tgt)
@@ -20,11 +28,11 @@ class BasicEnemy extends Enemy{
     
   }
   @Override
-  public void onDeath()
+  public void onDeath(World theWorld)
   {
   }
   @Override
-  public void tick()
+  public void tick(World theWorld)
   {
     
   }
