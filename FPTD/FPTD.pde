@@ -2,16 +2,17 @@ import ddf.minim.*;
 AudioPlayer bgm;
 Minim minim;
 
+ArrayList <Fireball> fireballs = new ArrayList <Fireball>  (); 
 ArrayList <Projectile> projectiles = new ArrayList <Projectile> ();
-ArrayList <Tower> towers = new ArrayList <Tower> ();              
-ArrayList <Enemy> enemies = new ArrayList<Enemy>();           
-int baseMouseX = width/2;    
-int baseMouseY = height/2;   
+ArrayList <Tower> towers = new ArrayList <Tower> ();
+ArrayList <Enemy> enemies = new ArrayList<Enemy>();
+int baseMouseX = width/2;
+int baseMouseY = height/2;
 Player plr;
-boolean[] keys = new boolean[255];    
+boolean[] keys = new boolean[255];
 
 
-void setup(){ 
+void setup(){
  size(displayWidth, displayHeight,P3D);
  
    minim = new Minim(this);
@@ -20,8 +21,8 @@ void setup(){
 
 
 void draw(){
-   if (!bgm.isPlaying ()) {
-      bgm.rewind ();
+   if (!bgm.isPlaying ()) { //loop intro music
+      bgm.rewind (); 
       bgm.play ();
     }
   frameRate(60);
