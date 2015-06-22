@@ -54,19 +54,19 @@ class Player {
       }
       if(keys['w']){
           movedirection = PVector.fromAngle(look.x*PI/180);
-      location.add(PVector.mult(movedirection, 1000*speed*dtime));}
+      location.add(PVector.mult(movedirection, 10000*speed*dtime));}
        if(keys['a']){
            movedirection = PVector.fromAngle(look.y*PI/180);
            movedirection.rotate(-PI/2);
-      location.add(PVector.mult(movedirection, 1000*speed*dtime));}
+      location.add(PVector.mult(movedirection, 10000*speed*dtime));}
        if(keys['s']){
            movedirection = PVector.fromAngle(look.x*PI/180);
            movedirection.rotate(PI);
-      location.add(PVector.mult(movedirection, 1000*speed*dtime));}
+      location.add(PVector.mult(movedirection, 10000*speed*dtime));}
        if(keys['d']){
            movedirection = PVector.fromAngle(look.y*PI/180);
            movedirection.rotate(PI/2);
-      location.add(PVector.mult(movedirection, 1000*speed*dtime));}
+      location.add(PVector.mult(movedirection, 10000*speed*dtime));}
   }
   
  void setupPlayer() {

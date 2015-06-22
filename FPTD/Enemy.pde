@@ -48,7 +48,7 @@ abstract class Enemy
   {
     this.vel = PVector.sub(this.pos, plr.location);
     vel.normalize();
-    vel.mult(this.speed * 1000);
+    vel.mult(this.speed * 10000);
     if(this.hp <= 0)
     {
       this.onDeath();
