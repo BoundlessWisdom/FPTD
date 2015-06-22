@@ -63,6 +63,7 @@ abstract class Enemy
 class BasicEnemy extends Enemy{
   public BasicEnemy()
   {
+    tex = loadImage("fireball_small.png");
     atk = def = hp = 1;
     speed = 6;
     pos = new PVector(0,0,0);
@@ -73,6 +74,7 @@ class BasicEnemy extends Enemy{
 class BasicPlusEnemy extends Enemy{
   public BasicPlusEnemy()
   {
+     tex = loadImage("fireball_med.png");
     atk = def = hp = 1;
     speed = 12;
     pos = new PVector(0,0,0);
@@ -84,6 +86,7 @@ class BasicPlusEnemy extends Enemy{
 class BigEnemy extends Enemy{
   public BigEnemy()
   {
+     tex = loadImage("fireball_large.png");
     atk = def = hp = 4;
     speed = 4;
     pos = new PVector(0,0,0);
@@ -101,6 +104,7 @@ class HugeEnemy extends Enemy{
     vel = new PVector(0,0,0);
     name = "Huge";
     xpYield = 2000;
+     tex = loadImage("fireball_large.png");
   }
 }
 class BossEnemy extends Enemy{
@@ -112,11 +116,13 @@ class BossEnemy extends Enemy{
     vel = new PVector(0,0,0);
     name = "Boss";
     xpYield = 10000;
+     tex = loadImage("bomb_boss_right_active.png");
   }
 }
 class BombEnemy extends Enemy{
   public BombEnemy()
   {
+     tex = loadImage("bomb_active.png");
     atk = def = hp = 1;
     speed = 6;
     pos = new PVector(0,0,0);
@@ -151,6 +157,7 @@ class SplitterEnemy extends Enemy{
     vel = new PVector(0,0,0);
     xpYield = 1000;
     name = "Splitter";
+     tex = loadImage("fireball_small.png");
   }
   public SplitterEnemy(int splits)
   {
