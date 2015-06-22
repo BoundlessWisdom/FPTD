@@ -129,3 +129,33 @@ class HugeEnemy extends Enemy{
     
   }
 }
+class BossEnemy extends Enemy{
+  public BossEnemy()
+  {
+    atk = def = hp = 1;
+    speed = 6;
+    pos = new PVector(0,0,0);
+    vel = new PVector(0,0,0);
+    name = "Boss";
+  }
+  @Override
+  public void onSpawn(int corner, boolean fromOtherEnemy)
+  {
+    
+  }
+  @Override
+  public void onAttack(Player tgt)
+  {
+    
+  }
+  @Override
+  public void onDeath(World theWorld)
+  {
+    
+  }
+  @Override
+  public void tick(World theWorld)
+  {
+    
+  }
+}
