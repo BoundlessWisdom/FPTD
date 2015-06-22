@@ -25,19 +25,29 @@ baseMouseX = width/2;baseMouseY = height/2;
 void draw(){
    
   frameRate(60); //Sets framerate to 60.
-  //background(0,0,255); //Sets default color.
-  
+
+  background(0,0,255); //Sets default color.
+  fill(0,255,0);
+  textSize(20);
+ text("Press 1 for Airtower, 2 for Firetower, 3 for Earthtower, and E to cast fireball.",0,20);
+
   translate(300,.95*height,-500); //Moves it below.
   fill(0,255,0); //Fills the rest of the screen with a color.
 
   box(310000,310,310000);  //Creates the floor.
-   translate(-300,-.95*height,500);
- plr.update(millis()); //Updates the plr method.
-for(int i=projectiles.size(); i>0; i--){
+
+  translate(-300,-.95*height, -500);
+ plr.update(0); //Updates the plr method.
+for(int i=projectiles.size()-1; i>=0; i--){
  Projectile myproj = projectiles.get(i);
  myproj.make(); 
  System.out.print("q");
 }
+for(int i=fireballs.size()-1; i>=0; i--){
+ Fireball myfire = fireballs.get(i);
+ myfire.make();}
+ 
+ 
 
 for(Tower t : towers){
  t.make();
@@ -52,6 +62,7 @@ for(int i = 0; i < 31; i++)
      grid[i][j] =  new ArrayList<Enemy>();
    }
  }
+
    System.out.print(enemies.toString());
   for (Enemy e : enemies) {
     xValue = (e.pos.x + 5000 * sign(e.pos.x)) / 10000;
@@ -82,6 +93,7 @@ for(int i = 0; i < 31; i++)
                     
         }
         */
+       
 }
 void keyPressed()
 {
