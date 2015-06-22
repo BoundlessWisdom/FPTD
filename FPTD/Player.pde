@@ -61,20 +61,24 @@ class Player {
         keys [keyCode] = true;
       }
       if(keys['w']){
-          movedirection = PVector.fromAngle(look.x*PI/180);
-      location.add(PVector.mult(movedirection, 10000*speed*dtime));}
+          //movedirection = PVector.fromAngle(look.x*PI/180);
+      //location.add(PVector.mult(movedirection, 10000*speed*dtime));
+      location.add(0,0,-1000);}
        if(keys['a']){
-           movedirection = PVector.fromAngle(look.y*PI/180);
-           movedirection.rotate(-PI/2);
-      location.add(PVector.mult(movedirection, 10000*speed*dtime));}
+           //movedirection = PVector.fromAngle(look.y*PI/180);
+           //movedirection.rotate(-PI/2);
+      //location.add(PVector.mult(movedirection, 10000*speed*dtime));
+      location.add(-1000,0,0);}
        if(keys['s']){
-           movedirection = PVector.fromAngle(look.x*PI/180);
-           movedirection.rotate(PI);
-      location.add(PVector.mult(movedirection, 10000*speed*dtime));}
+           //movedirection = PVector.fromAngle(look.x*PI/180);
+           //movedirection.rotate(PI);
+      //location.add(PVector.mult(movedirection, 10000*speed*dtime));
+      location.add(0,0,1000);}
        if(keys['d']){
-           movedirection = PVector.fromAngle(look.y*PI/180);
-           movedirection.rotate(PI/2);
-      location.add(PVector.mult(movedirection, 10000*speed*dtime));}
+           //movedirection = PVector.fromAngle(look.y*PI/180);
+           //movedirection.rotate(PI/2);
+           location.add(1000,0,0);
+      //location.add(PVector.mult(movedirection, 10000*speed*dtime));}
   }
   
  void setupPlayer() {
