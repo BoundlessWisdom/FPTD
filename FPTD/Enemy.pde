@@ -31,7 +31,10 @@ abstract class Enemy
   }
   public void onAttack(Player tgt)
   {
-    plr.health -= this.atk;
+    if(PVector.sub(this.pos, plr.location).mag() < 1 && PVector.sub(this.pos, plr.location).mag() > -1)
+    {
+      plr.health -= this.atk;
+    }
   }
   public void onDeath()
   {
@@ -42,6 +45,10 @@ abstract class Enemy
     this.vel = PVector.sub(this.pos, plr.location);
     vel.normalize();
     vel.mult(this.speed);
+    if(this.hp <= 0)
+    {
+      this.onDeath();
+    }
   }
 }
 
@@ -88,10 +95,50 @@ class HugeEnemy extends Enemy{
 class BossEnemy extends Enemy{
   public BossEnemy()
   {
+    atk = def = hp = 10;
+    speed = 2;
+    pos = new PVector(0,0,0);
+    vel = new PVector(0,0,0);
+    name = "Boss";
+  }
+}
+class BombEnemy extends Enemy{
+  public BombEnemy()
+  {
     atk = def = hp = 1;
     speed = 6;
     pos = new PVector(0,0,0);
     vel = new PVector(0,0,0);
-    name = "Boss";
+    name = "Bomb";
+  }
+  public void onDeath()
+  {
+    super.onDeath();
+    //Explode
+    for (Enemy e : enemies)
+    {
+      if(PVector.sub(this.pos, e.pos).mag() < 10000 && PVector.sub(this.pos, e.pos).mag() > -10000)
+      {
+        e.hp -= 10;
+      }
+    }
+    if(PVector.sub(this.pos, plr.location).mag() < 10000 && PVector.sub(this.pos, plr.location).mag() > -10000)
+    {
+      plr.health -= 10;
+    }
+  }
+}
+class SplitterEnemy extends Enemy{
+  public SplitterEnemy()
+  {
+    atk = def = speed = 8;
+    hp = 16;
+    pos = new PVector(0,0,0);
+    vel = new PVector(0,0,0);
+    name = "Splitter";
+  }
+  public void onDeath()
+  {
+    //Split
   }
 }
