@@ -44,11 +44,11 @@ abstract class Enemy
     enemies.remove(this);
     plr.xp += xpYield;
   }
-  public void tick()//note to self: this.velocity = player.pos.sub(this.pos).normalize().mul(this.speed); for tracking
+  public void update()//note to self: this.velocity = player.pos.sub(this.pos).normalize().mul(this.speed); for tracking
   {
     this.vel = PVector.sub(this.pos, plr.location);
     vel.normalize();
-    vel.mult(this.speed);
+    vel.mult(this.speed * 1000);
     if(this.hp <= 0)
     {
       this.onDeath();
