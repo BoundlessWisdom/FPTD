@@ -2,7 +2,7 @@ abstract class Projectile {
   PVector loc = new PVector(0, 0, 0);
   PVector target = new PVector(0, 0, 0);
   PVector vel = new PVector(0, 0, 0);
-  public Projectile(Tower src, Enemy target) {
+  public Projectile(Tower src, PVector target) {
     this.target.set(loc);
     loc.set(src.loc);
   }

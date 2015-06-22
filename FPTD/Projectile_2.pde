@@ -23,7 +23,7 @@ void make(){
   fill(255,0,0,100);
  box(10000,200,200);
    vel = PVector.sub(loc,target);
-   vel.setMag(vel.mag()+acc);
+   vel.setMag(vel.mag()+acc.mag());
    vel.add(acc);
    loc.add(vel);
   translate(-loc.x, -loc.y, -loc.z);
