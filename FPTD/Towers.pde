@@ -1,13 +1,14 @@
 abstract class Towers {
  
    float timer=millis(); 
-   
+   int type;
+   PVector loc;
   Towers(float tempx, float tempy, int type){
-   PVector loc = new PVector(tempx, tempy);
-   int type = type; //1 is air, 2 is fire, 3 is earth 
+   loc = new PVector(tempx, tempy);
+   this.type = type; //1 is air, 2 is fire, 3 is earth 
 }
 
-}
+
 void make(){
   translate(loc.x,loc.y);
  if(type==1){
@@ -29,5 +30,6 @@ if((timer-millis())%200==0){
  timer-=5000; 
 if(type == 1){
 projectiles.add(new Airbullet());} 
+}
 }
 }
