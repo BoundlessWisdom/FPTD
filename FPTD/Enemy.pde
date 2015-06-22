@@ -59,6 +59,20 @@ abstract class Enemy
   {
     textureSphere(pos.x,pos.y,pos.z,tex);
   }
+   void collide(Enemy e) {
+    float dist = dist(e.pos, this.pos);
+    if (dist < e.size + this.size) {
+      e.vel.div(0.1 * size * dist/2);
+      e.vel.add(PVector.mult(PVector.sub(e.pos, this.pos) , 5));
+    }
+  }
+  void collide(Tower t) {
+    float dist = dist(t.loc, this.pos);
+    if (dist < 10000 + this.size) {
+      this.vel.div(0.1 * size * dist/2);
+      this.vel.add(PVector.mult(PVector.sub(t.loc, this.pos) , 5));
+    }
+  }
 }
 
 class BasicEnemy extends Enemy{
@@ -201,13 +215,5 @@ class SplitterEnemy extends Enemy{
     enemies.add(e2);
   }
 
-  void collide(Enemy e) {
-    int dist = dist(e.pos, this.loc);
-    if (dist < e.size + this.size) {
-      this.speed /= (0.1 * size * dist/2);
-      e.vel /= (0.1 * size * dist/2);
-      this.speed.add(this.loc.sub(e.pos) * 10 / 2);
-      e.vel.add(e.pos.sub(this.loc) * 10 / 2);
-    }
-  }
+ 
 }

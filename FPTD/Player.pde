@@ -96,13 +96,11 @@ class Player {
   }
   
   void collide() {
-    for (Enemy e : FPTD.enemies) {
-      int dist = dist(e.pos, this.loc);
-      if (dist < e.size + this.size) {
-        this.speed /= (0.1 * size * dist/2);
-        e.vel /= (0.1 * size * dist/2);
-        this.speed.add(this.loc.sub(e.pos) * 10);
-        e.vel.add(e.pos.sub(this.loc) * 10);
+    for (Enemy e : enemies) {
+      float dist = dist(e.pos, this.location);
+      if (dist < e.size + 1000) {
+        e.vel.div(0.1 * 1000 * dist/2);
+        e.vel.add(PVector.mult(PVector.sub(e.pos, this.location) , 10));
       }
     }
   }

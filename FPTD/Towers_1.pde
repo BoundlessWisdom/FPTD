@@ -1,4 +1,3 @@
-boolean[][] towered = new boolean[31][31];
 abstract class Tower {
   PVector loc;
   long timer = millis();
