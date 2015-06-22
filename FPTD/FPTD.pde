@@ -2,7 +2,7 @@ import ddf.minim.*;
 AudioPlayer bgm;
 Minim minim;
 
-
+ArrayList <Fireball> fireballs = new ArrayList <Fireball>  (); 
 ArrayList <Projectile> projectiles = new ArrayList <Projectile> ();
 ArrayList <Tower> towers = new ArrayList <Tower> ();              
 ArrayList <Enemy> enemies = new ArrayList<Enemy>();           

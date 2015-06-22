@@ -85,4 +85,13 @@ class Player {
     speed += 1;
     xp -= 10000;
   }
+  
+  void castfire(){
+   int timer = frameCount;
+   int timer2 = 0;
+   if(keys['e'] && abs(timer-timer2) > 60){
+   fireballs.add(new Fireball(loc, movedirection)); 
+   timer2 = frameCount;
+  }
+  }
 }
