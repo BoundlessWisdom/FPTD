@@ -14,16 +14,16 @@ abstract class Enemy
     else switch(corner)
     {
       case 0:
-        this.pos = new PVector(0,0,0);
+        this.pos = new PVector(-150000,0,-150000);
         break;
       case 1:
-        this.pos = new PVector(310000.0f,0,0);
+        this.pos = new PVector(150000,0,-150000);
         break;
       case 2:
-        this.pos = new PVector(0,0,310000.0f);
+        this.pos = new PVector(-150000,0,150000.0f);
         break;
       case 3:
-        this.pos = new PVector(310000.0f,0, 310000.0f);
+        this.pos = new PVector(150000,0, 150000);
         break;
       default:
         this.pos = new PVector(0,0,0);
