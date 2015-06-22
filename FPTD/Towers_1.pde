@@ -1,14 +1,16 @@
+boolean[][] towered = new boolean[31][31];
 abstract class Tower {
   PVector loc;
   long timer = millis();
   Enemy target;
   color Color = color(0,0,0);
   Tower(int x, int y) {
-    loc = new PVector(x, y);
+    loc = new PVector(x, 0, y);
   }
   void place()
   {
     towers.add(this);
+    towered[(int)(this.loc.x/100000)][(int)(this.loc.z/100000)] = true;
   }
   int rank()
   {
