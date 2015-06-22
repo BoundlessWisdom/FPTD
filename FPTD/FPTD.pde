@@ -1,8 +1,8 @@
 ArrayList <Projectile> projectiles = new ArrayList <Projectile> ();
-ArrayList <Towers> towers = new ArrayList <Towers> ();
+ArrayList <Tower> towers = new ArrayList <Tower> ();
 int basemousex = width/2;
 int basemousey = height/2;
-
+Player plr;
 
 void setup(){
  size(displayWidth, displayHeight,P3D);
@@ -23,7 +23,6 @@ void draw(){
  Player.update();
 for(int i=projectiles.size(); i>0; i--){
  Projectile myproj = projectiles.get(i);
- myproj.
 }
 
 for(int i= towers.size(); i>0; i--){
@@ -32,7 +31,3 @@ mytow.make();
 }
 
 }
-
-
-
-
