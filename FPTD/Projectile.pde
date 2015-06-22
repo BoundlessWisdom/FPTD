@@ -1,14 +1,19 @@
 abstract class Projectile{
-  
- Projectile(){
-   
+  PVector loc = new PVector(0,0,0);
+  PVector tloc = new PVector(0,0,0);
+  int rank = 1;
+  PVector vel = new PVector(0,0,0);
+ Projectile(Towers temptow, PVector aloc){
+   rank = temptow.rank();
+  tloc.set(aloc);
+  loc.set(temptow.loc);
  }
  
   
 }
 
 class Airbullet extends Projectile{
- 
+
  Airbullet(){
 
  } 
@@ -34,6 +39,10 @@ Firebullet(){
   
 }
 void make(){
+ 
    fill(255,0,0,80); 
+   vel = PVector.sub(loc,tloc);
+   loc.add(vel);
+  
 }
 }
