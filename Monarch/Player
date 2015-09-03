@@ -1,0 +1,5 @@
+class Player extends Entity {
+  
+  
+  public int type() { return 2; }
+}
