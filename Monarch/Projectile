@@ -1,0 +1,5 @@
+class Projectile extends Entity {
+  
+  
+  public int type() { return 1; }
+}
