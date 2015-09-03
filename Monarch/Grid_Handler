@@ -1,0 +1,54 @@
+static class Grid_Handler {
+  
+  static boolean[][] towered;
+  static ArrayList<Monster>[][] grid;
+  
+  static ArrayList<Tower> towers = new ArrayList<Tower>();
+  static ArrayList<Monster> monsters = new ArrayList<Monster>();
+  static ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
+  
+  Player player1;
+  
+  
+  
+  //The grid is a grid of 2x2 mini-grids.
+  
+  public static void initialize(int xSize, int ySize) {
+    towered = new boolean[2 * xSize][2 * ySize];
+    grid = new ArrayList[2 * xSize][2 * ySize];
+  }
+  
+  
+  
+  public static void buildTowers() {
+    
+  }
+  
+  static ArrayList<Entity> generationQueue = new ArrayList<Entity>();
+  
+  public static void generate() {
+    for (Entity e : generationQueue)
+      switch (e.type()) {
+        case 1: monsters.add((Monster) e);
+                break;
+        case 2: 
+      }
+  }
+  
+  public static void nextFrame() {
+    
+  }
+  
+  public static void calculateCollisions() {
+    
+  }
+  
+  public static void render() {
+    
+  }
+  
+  public static void think() {
+    
+  }
+  
+}
