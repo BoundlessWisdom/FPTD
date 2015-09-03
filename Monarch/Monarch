@@ -1,0 +1,21 @@
+void setup() {
+  size(displayWidth, displayHeight, P3D); //Sets default window height, and tells processing it's a 3D environment.
+  Grid_Handler.initialize(3, 10);
+}
+
+void draw() {
+  background(0,0,240);
+  frameRate(60);
+  fill(0,255,0);
+  translate(0,1000,0);
+    box(310000,310,310000);
+    Monster mon = new Monster(1);
+    mon.make();
+  Grid_Handler.buildTowers();
+  Grid_Handler.clearGenerationQueue();
+  Grid_Handler.nextFrame();
+  Grid_Handler.calculateCollisions();
+  Grid_Handler.render();
+  Grid_Handler.think();
+  translate(0,-1000,0);
+}
