@@ -1,0 +1,34 @@
+class Monster extends Entity {
+  PVector loc = new PVector(displayWidth/2, -displayHeight, 300);
+  PVector vel = new PVector(0, 0, 0);
+  PVector acc = new PVector(0, 0, 0);
+  int size;
+  public String type() { 
+    return "m";
+  }
+  Monster(int tclass) {
+    switch(tclass) {
+    case 1: 
+      size = 40; 
+      break;
+        case 2:
+    size = 80;
+    break;
+    default:
+    size = 40;
+    break;
+    }
+
+  }
+
+  void make() {
+    noStroke();
+      loc.add(vel);
+    translate(loc.x, loc.y, loc.z);
+    fill(255, 0, 50, 255);
+    sphere(3*size/5);
+    fill(255, 165, 0, 120);
+    sphere(size);
+    translate(-loc.x, -loc.y, -loc.z);
+  }
+}
